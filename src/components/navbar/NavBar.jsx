@@ -21,7 +21,7 @@ const Links = styled.nav`
 
   a {
     text-decoration: none;
-    color: ${colors.white};
+    color: ${colors.black};
     font-size: 16pt;
   }
 

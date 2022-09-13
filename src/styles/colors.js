@@ -1,6 +1,8 @@
 const colors = {
-  white: '#FCFCFC',
-  black: '#000D0D',
+  links: '#FCFCFC',
+  black: '#000000',
+  white: '#FFFFFF',
+  backgroundBlack: '#242424',
   green: '#00EDA1',
   blue: '#1F85DE',
   yellow: '#F5E513',
