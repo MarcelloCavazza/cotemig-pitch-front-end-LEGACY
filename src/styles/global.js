@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: Rubik, sans-serif;
-    background-color: ${colors.white};
+    background-color: ${colors.backgroundBlack};
     color: ${colors.black};
   }
 

@@ -6,6 +6,7 @@ const Title = styled.h1`
     color: ${props => props.color ? props.color : colors.black};
     font-size: ${props => props.size ? props.size : 16}px;
     text-align: center;
+    
 `
 
 export default Title;

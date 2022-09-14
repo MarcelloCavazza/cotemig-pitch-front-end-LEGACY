@@ -19,17 +19,18 @@ const NavBar = () => {
 const Links = styled.nav`
   width: 600px;
 
-  a {
+  & a {
     text-decoration: none;
-    color: ${colors.black};
+    color: ${colors.white};
+    mix-blend-mode: difference;
     font-size: 16pt;
   }
 
-  li {
+  & li {
     list-style: none;
   }
 
-  ul {
+  & ul {
     display: flex;
     justify-content: space-between;
   }

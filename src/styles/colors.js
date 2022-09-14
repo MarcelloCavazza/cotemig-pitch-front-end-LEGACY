@@ -3,8 +3,9 @@ const colors = {
   black: '#000000',
   white: '#FFFFFF',
   backgroundBlack: '#242424',
-  green: '#00EDA1',
-  blue: '#1F85DE',
+  background: '#EDEDED',
+  green: '#00E390',
+  blue: '#007AF5',
   yellow: '#F5E513',
   tomatoRed: '#EB2926',
 }
