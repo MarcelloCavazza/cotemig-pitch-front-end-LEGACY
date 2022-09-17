@@ -3,27 +3,102 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import colors from '../../styles/colors'
 
-const Input = ({children, type, id, value, placeholder, event, isRequired}) => {
+const Input = ({children, placeholder, type, id, value, event, isRequired}) => {
     return (
         <SInput>
-            <div>
-                <label htmlFor={id}><span>{children}</span></label>
-                <input onChange={event} placeholder={placeholder} type={type} id={id} value={value} isRequired={isRequired}/>
-            </div>
+            <input onChange={event} type={type} id={id} value={value} required={isRequired} placeholder={placeholder}/>
+            <label htmlFor={id}>
+                {children}
+                <span>{isRequired ? ' *' : ''}</span>
+                </label>
         </SInput>
     )
 }
 
 const SInput = styled.div`
+    position: relative;
     width: 400px;
-    margin: 10px 0;
-
-    & div {
-        position: relative;
-        height: 50px;
-    }
+    height: 55px;
+    margin: 15px 0;
 
     & input {
+        font-family: inherit;
+        font-size: 14pt;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 3px solid ${colors.disabledInput};
+        border-radius: .5rem;
+        background: transparent;
+        outline: none;
+        color: ${colors.white};
+        padding: 25px 1rem;
+        
+        &:focus {
+            border-color: ${colors.green};
+        }
+
+    }
+
+    & label {
+        position: absolute;
+        top: -0.7rem;
+        font-size: 12pt;
+        font-weight: bold;
+        left: 0.7rem;
+        padding: 0 .4rem;
+        color: white;
+        cursor: text;
+        border-radius: 5px;
+        background-color: ${colors.backgroundBlack};
+        color: ${colors.disabledInput};
+    }
+
+    & input:hover,
+    & input:hover ~ label {
+        border-color: ${colors.green}88;
+    }
+
+    & input:focus {
+        border-color: ${colors.green};
+    }
+
+    & input:focus ~ label,
+    & input:not(:placeholder-shown) ~ label{
+        color: ${colors.white};
+
+        & span {
+        color: ${colors.tomatoRed};
+        }
+    }
+
+    & span {
+        font-weight: normal;
+    }
+
+    
+`
+
+
+Input.propTypes = {
+    children: PropTypes.any.isRequired,
+    type: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    isRequired: PropTypes.bool
+}
+
+Input.defaultProps = {
+    children: '{label}',
+    type: 'text',
+    isRequired: false,
+    placeholder: ' '
+}
+
+
+/*
+& input {
         background-color: transparent;
         outline: 0;
         width: 100%;
@@ -78,22 +153,6 @@ const SInput = styled.div`
     & input:valid + & label::after{
 
     }
-    
-`
-
-Input.propTypes = {
-    children: PropTypes.any.isRequired,
-    type: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    placeholder: PropTypes.string,
-    isRequired: PropTypes.bool
-}
-
-Input.defaultProps = {
-    children: '{label}',
-    type: 'text',
-    isRequired: false
-}
-
+*/
 
 export default Input;

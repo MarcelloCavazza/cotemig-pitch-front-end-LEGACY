@@ -8,6 +8,7 @@ const colors = {
   blue: '#007AF5',
   yellow: '#F5E513',
   tomatoRed: '#EB2926',
+  disabledInput: '#555555',
 }
 
 export default colors;
