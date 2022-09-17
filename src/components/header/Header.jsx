@@ -13,9 +13,12 @@ const Header = () => {
 
 const SHeader = styled.header`
   height: 96px;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 100px;
 `
 
 export default Header;

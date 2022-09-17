@@ -5,14 +5,14 @@ import Contact from './pages/Contact.jsx';
 import AboutUs from './pages/AboutUs.jsx';
 import LogIn from './pages/LogIn.jsx';
 import NoPage from './pages/NoPage.jsx';
-import SignUp from './pages/SignUp.jsx'
+import SignUp from './pages/SignUp.jsx';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App(){
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path='/' element={<Layout/>}>
           <Route index element={<Home />}></Route>
           <Route path='about' element={<AboutUs />}></Route>
           <Route path='contact' element={<Contact />}></Route>
