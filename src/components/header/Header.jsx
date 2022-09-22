@@ -5,14 +5,14 @@ import Logo from '../logo/Logo.jsx'
 const Header = () => {
   return (
     <SHeader>
-      <Logo tamanho={64}/>
+      <Logo tamanho={54}/>
       <NavBar />
     </SHeader>
   )
 }
 
 const SHeader = styled.header`
-  height: 96px;
+  height: 70px;
   width: 90%;
   margin: 0 auto;
   display: flex;

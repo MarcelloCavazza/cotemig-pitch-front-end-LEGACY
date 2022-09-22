@@ -2,7 +2,7 @@ import styled from "styled-components";
 import colors from "../../styles/colors";
 
 const Button = styled.button`
-  font-family: 'Rubik', sans-serif;
+  font-family: inherit;
   padding: 15px 30px;
   font-size: 14pt;
   font-weight: bold;
@@ -12,7 +12,7 @@ const Button = styled.button`
   color: ${props => props.primary ? 'black' : 'white'};
   
   &:hover{
-    text-decoration:underline;
+    text-decoration: underline;
     cursor: pointer;
   }
 `

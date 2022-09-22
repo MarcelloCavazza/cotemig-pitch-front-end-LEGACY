@@ -16,10 +16,8 @@ const Layout = () => {
 }
 
 const SOutlet = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 `
 
 export default Layout;
