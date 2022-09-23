@@ -23,7 +23,7 @@ const Links = styled.nav`
     text-decoration: none;
     color: ${colors.white};
     mix-blend-mode: difference;
-    font-size: 16pt;
+    font-size: 14pt;
   }
 
   & li {

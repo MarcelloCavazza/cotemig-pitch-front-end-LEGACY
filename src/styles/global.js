@@ -9,8 +9,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    height: 100vh;
-    margin-bottom: 25vh;
+    min-height: 100vh;
     font-family: Rubik, sans-serif;
     background-color: ${colors.backgroundBlack};
     color: ${colors.black};

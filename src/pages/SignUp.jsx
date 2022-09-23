@@ -1,85 +1,130 @@
 import React from 'react';
-import FormContainer from '../components/form_login/FormContainer.styled';
-import Input from '../components/form_login/Input';
+import FormContainer from '../components/containers/FormContainer';
+import Input from '../components/inputs/Input';
 import Title from '../components/texts/Texts';
 import colors from '../styles/colors';
 import LoginButton from '../components/button/LoginButton';
 import Neumorfismo from '../styles/neumorfismo';
 import InputContainer from '../components/containers/InputContainer';
-import {Link} from 'react-router-dom'
+import { Combobox, Option } from '../components/inputs/Combobox'
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 const SignUp = () => {
 
-  const
-    [email, handleEmailChange] = useState(''),
-    [password, handlePasswordChange] = useState(''),
-    [name, handleNameChange] = useState(''),
-    [gender, handleGenderChange] = useState(''),
-    [cpf_cnpj, handleCpfCnpjChange] = useState(''),
-    [birthday, handleBirthdayChange] = useState('');
+  const [values, setValues] = useState({
+    name: '',
+    email: '',
+    cpf: '',
+    birthday: '',
+    gender: '',
+    password: '',
+    confirmPassword: '',
+  });
+
+  const header = {
+    method: 'POST',
+    title: 'Sign Up',
+    link: '/login',
+    labelTitle: 'Já tem uma conta? Faça o login aqui.',
+    button: 'Cadastrar'
+  };
+
+  const inputs = [
+    {
+      title: 'Nome',
+      type: 'text',
+      name: 'name',
+      id: 'name',
+      isRequired: true,
+    },
+    {
+      title: 'Email',
+      type: 'text', 
+      name: 'email',
+      id: 'userEmail',
+      isRequired: true,
+    },
+    {
+      title: 'CPF',
+      type: 'text', 
+      name: 'cpf',
+      id: 'userCpf',
+      isRequired: true
+    },
+    {
+      title: 'Data de nascimento',
+      type: 'text',
+      name: 'birthday',
+      id: 'userBirthday',
+      isRequired: true
+    },
+    {
+      title: 'Sexo',
+      type: 'combobox',
+      name: 'gender',
+      id: 'userGender',
+      options: [
+        {
+          title: 'Masculino',
+          value: 'masculino',
+        },
+        {
+          title: 'Feminino',
+          value: 'feminino',
+        },
+        {
+          title: 'Outro',
+          value: 'outro',
+        }
+      ],
+      isRequired: true
+    },
+    {
+      title: 'Senha',
+      type: 'password', 
+      name: 'password',
+      id: 'userPassword',
+      isRequired: true,
+    },
+    {
+      title: 'Confirmar senha',
+      type: 'password',
+      name: 'confirmPassword',
+      id: 'userConfPassword',
+      isRequired: true,
+    }
+  ];
+
+  const onChange = (e) => { setValues({...values, [e.target.name]: e.target.value}); };
 
   return (
-    <>
-      <Neumorfismo />
-      <FormContainer className='neumorph' method='POST'>
-        <Title size={30} color={colors.green}>Sign Up</Title>
-        <div className="href">
-          <Link to='/login'>Já tem uma conta? Faça o login aqui.</Link>
-        </div>
-        <InputContainer>
-          <Input 
-            type='text' 
-            event={event => handleNameChange(event.target.value)} 
-            value={name}
-            id='userName'
-            isRequired>
-              Nome completo
-          </Input>
-          <Input 
-            type='email' 
-            event={event => handleEmailChange(event.target.value)} 
-            value={email}
-            id='userEmail'
-            isRequired>
-              Email
-          </Input>
-          <Input 
-            type='text' 
-            event={event => handleCpfCnpjChange(event.target.value)} 
-            value={cpf_cnpj}
-            id='userCpfCnpj'
-            isRequired>
-              CPF/CNPJ
-          </Input>
-          <Input 
-            type='date' 
-            event={event => handleBirthdayChange(event.target.value)} 
-            value={birthday}
-            id='userBirthday'
-            isRequired>
-              Data de nascimento
-          </Input>
-          <Input 
-            type='text' 
-            event={event => handleGenderChange(event.target.value)} 
-            value={gender}
-            id='userGender'
-            isRequired>
-              Sexo
-          </Input>
-          <Input 
-            type='password' 
-            event={event => handlePasswordChange(event.target.value)} 
-            value={password}
-            id='userPassword'
-            isRequired>
-              Criar senha
-          </Input>
-        </InputContainer>
-        <LoginButton primary>Cadastrar</LoginButton>
-      </FormContainer>
-    </>
+  <>
+    <Neumorfismo />
+    <FormContainer className='neumorph' method={header.method} onSubmit={(e) => e.preventDefault()}>
+      <Title size={30} color={colors.green}>{header.title}</Title>
+      <div className='href'>
+        <Link to={header.link}>{header.labelTitle}</Link>
+      </div>
+      <InputContainer>{
+        inputs.map((input) => 
+          input.type == 'text' || input.type ==  'password' || input.type == 'email' ?
+            <Input key={input.name} {...input} value={values[input.name]} onChange={onChange} />
+          : input.type == 'combobox' ?
+            <Combobox key={input.name} onChange={onChange} title={input.title} id={input.id} name={input.name} isRequired >
+              {input.options.map((gender) =>
+                <Option 
+                  key={gender.value} 
+                  value={values[gender.value]}>
+                    {gender.title}
+                </Option>
+              )}
+          </Combobox>
+        : null )}
+      </InputContainer>
+    <LoginButton primary>{header.button}</LoginButton>
+    </FormContainer>
+  </>
   )
 }
 
