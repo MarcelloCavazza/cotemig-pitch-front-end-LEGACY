@@ -9,6 +9,9 @@ import InputContainer from '../components/containers/InputContainer';
 import { Combobox, Option } from '../components/inputs/Combobox'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { AuthAPI } from '../data/api/hooks/services/AuthService';
+import Cookies from 'universal-cookie';
+import { ClientAPI } from '../data/api/hooks/services/ClientService';
 
 const SignUp = () => {
 
@@ -19,6 +22,7 @@ const SignUp = () => {
     birthday: '',
     gender: '',
     password: '',
+    telephone: '',
     confirmPassword: '',
   });
 
@@ -43,6 +47,13 @@ const SignUp = () => {
       type: 'text', 
       name: 'email',
       id: 'userEmail',
+      isRequired: true,
+    },
+    {
+      title: 'Telephone',
+      type: 'text', 
+      name: 'telephone',
+      id: 'userTelephone',
       isRequired: true,
     },
     {
@@ -98,10 +109,60 @@ const SignUp = () => {
 
   const onChange = (e) => { setValues({...values, [e.target.name]: e.target.value}); };
 
+  const createAccont = async (e) => {
+    e.preventDefault()
+
+    const authApi = AuthAPI()
+    try {
+      const result  = await authApi.post("/create",
+      JSON.stringify({
+          ...values
+      }))
+      const cookies = new Cookies()
+      const userId = result.data.id
+      const userToken = result.data.token
+      cookies.set('userData', {
+        userId,
+        userToken
+      }, {
+        path: '/'
+      })
+
+      const clientApi = ClientAPI()
+      try {
+        const email = values.email
+        const cpf = values.cpf
+        const name = values.name
+        const password = values.password
+        const telephone = values.telephone
+        const result = await clientApi.post("/create",
+          JSON.stringify({
+            // name:"Marcello",
+            // cpf: "08642081627",
+            // email: "marcellocavazzaoliveira@gmail.com",
+            // password: "12345678",
+            // telephone: "997113886"
+            name,
+            cpf,
+            email,
+            password,
+            telephone
+          }))
+        if (result) {
+          window.location.href = '/'
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    } catch (error) {
+      console.log(error) 
+    }
+  }
+  
   return (
   <>
     <Neumorfismo />
-    <FormContainer className='neumorph' method={header.method} onSubmit={(e) => e.preventDefault()}>
+    <FormContainer className='neumorph' method={header.method} onSubmit={createAccont}>
       <Title size={30} color={colors.green}>{header.title}</Title>
       <div className='href'>
         <Link to={header.link}>{header.labelTitle}</Link>

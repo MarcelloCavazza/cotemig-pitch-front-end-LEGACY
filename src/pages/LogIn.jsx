@@ -8,6 +8,7 @@ import Neumorfismo from '../styles/neumorfismo';
 import InputContainer from '../components/containers/InputContainer';
 import {Link} from 'react-router-dom'
 import { useState } from 'react';
+import { AuthAPI } from '../data/api/hooks/services/AuthService';
 
 const LogIn = () => {
 
@@ -45,11 +46,22 @@ const LogIn = () => {
     setValues({...values, [e.target.name]: e.target.value});
     console.log(values)
   }
+
+  const login = async (e) => {
+    e.preventDefault()
+    const authAPI = AuthAPI()
+    const result = await authAPI.post("/auth", JSON.stringify({
+      email: values.userEmail,
+      password: values.userPassword
+    }))
+
+    console.log(result)
+  }
    
   return (
   <>
     <Neumorfismo/>
-    <FormContainer className='neumorph' method={header.method} onSubmit={(e) => e.preventDefault()}>
+    <FormContainer className='neumorph' method={header.method} onSubmit={login}>
       <Title size={30} color={colors.green}>{header.title}</Title>
       <div className='href'>
         <Link to={header.link}>{header.labelTitle}</Link>
