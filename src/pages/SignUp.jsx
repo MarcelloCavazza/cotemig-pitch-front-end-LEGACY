@@ -118,39 +118,38 @@ const SignUp = () => {
       JSON.stringify({
           ...values
       }))
-      const cookies = new Cookies()
       const userId = result.data.id
       const userToken = result.data.token
-      cookies.set('userData', {
-        userId,
-        userToken
-      }, {
-        path: '/'
-      })
 
-      const clientApi = ClientAPI()
+      const clientApi = ClientAPI(userToken)
       try {
-        const email = values.email
-        const cpf = values.cpf
-        const name = values.name
-        const password = values.password
-        const telephone = values.telephone
-        const result = await clientApi.post("/create",
+        const email = document.querySelector('#userEmail').value
+        const cpf = document.querySelector('#userCpf').value
+        const name = document.querySelector('#name').value
+        const password = document.querySelector('#userPassword').value
+        const telephone = document.querySelector('#userTelephone').value
+
+        clientApi.post("/create",
           JSON.stringify({
-            // name:"Marcello",
-            // cpf: "08642081627",
-            // email: "marcellocavazzaoliveira@gmail.com",
-            // password: "12345678",
-            // telephone: "997113886"
+            optionalId: userId,
             name,
             cpf,
             email,
             password,
             telephone
-          }))
-        if (result) {
-          window.location.href = '/'
-        }
+          })).then((result) => {
+            const response = result.data
+            const cookies = new Cookies()
+            if (response.is_active) {
+              cookies.set('userData', {
+                userId,
+                userToken,
+                email
+              }, {
+                path: '/'
+              })
+            }
+          })
       } catch (error) {
         console.log(error)
       }
