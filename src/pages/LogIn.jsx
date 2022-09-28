@@ -8,6 +8,7 @@ import Neumorfismo from '../styles/neumorfismo';
 import InputContainer from '../components/containers/InputContainer';
 import {Link} from 'react-router-dom'
 import { useState } from 'react';
+import Cookies from 'universal-cookie';
 import { AuthAPI } from '../data/api/hooks/services/AuthService';
 
 const LogIn = () => {
@@ -43,19 +44,34 @@ const LogIn = () => {
   ]
 
   const onChange = (e) => {
-    setValues({...values, [e.target.name]: e.target.value});
-    console.log(values)
   }
 
   const login = async (e) => {
     e.preventDefault()
+    let emailValue = document.querySelector('#userEmail').value
+    let passwordValue = document.querySelector('#userPssword').value
     const authAPI = AuthAPI()
-    const result = await authAPI.post("/auth", JSON.stringify({
-      email: values.userEmail,
-      password: values.userPassword
-    }))
+    authAPI.post("/auth", JSON.stringify({
+      email: emailValue,
+      password: passwordValue
+    })).then((result) => {
 
-    console.log(result)
+      const response = result.data
+      const cookies = new Cookies()
+      cookies.remove('userData')
+      cookies.set('userData', {
+        token: response.token,
+        id: response.id,
+        email: response.email
+      }, {
+        path: '/'
+      })
+      if (response != 'Wrong Credentials') {
+        alert('logou')
+      } else {
+        alert('Senha ou Email incorreto(s)')
+      }
+    })
   }
    
   return (
