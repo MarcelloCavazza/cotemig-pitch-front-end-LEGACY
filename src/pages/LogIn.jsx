@@ -68,6 +68,7 @@ const LogIn = () => {
       })
       if (response != 'Wrong Credentials') {
         alert('logou')
+        window.location.href = '/logged'
       } else {
         alert('Senha ou Email incorreto(s)')
       }

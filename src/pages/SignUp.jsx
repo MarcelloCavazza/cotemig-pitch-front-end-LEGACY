@@ -149,6 +149,7 @@ const SignUp = () => {
                 path: '/'
               })
             }
+            window.location.href = '/logged'
           })
       } catch (error) {
         console.log(error)

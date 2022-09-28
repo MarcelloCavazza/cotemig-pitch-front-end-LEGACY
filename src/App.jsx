@@ -7,6 +7,7 @@ import LogIn from './pages/LogIn.jsx';
 import NoPage from './pages/NoPage.jsx';
 import SignUp from './pages/SignUp.jsx';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Logged from './pages/Logged.jsx';
 
 function App(){
   return (
@@ -17,6 +18,7 @@ function App(){
           <Route path='about' element={<AboutUs />}></Route>
           <Route path='contact' element={<Contact />}></Route>
           <Route path='login' element={<LogIn />}></Route>
+          <Route path='logged' element={<Logged />}></Route>
           <Route path='signup' element={<SignUp />}></Route>
           <Route path='*' element={<NoPage />}></Route>
         </Route>
