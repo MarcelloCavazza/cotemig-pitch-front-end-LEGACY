@@ -55,23 +55,25 @@ const LogIn = () => {
       email: emailValue,
       password: passwordValue
     })).then((result) => {
-
       const response = result.data
-      const cookies = new Cookies()
-      cookies.remove('userData')
-      cookies.set('userData', {
-        token: response.token,
-        id: response.id,
-        email: response.email
-      }, {
-        path: '/'
-      })
       if (response != 'Wrong Credentials') {
+        const cookies = new Cookies()
+        cookies.remove('userData')
+        cookies.set('userData', {
+          token: response.token,
+          id: response.id,
+          email: response.email,
+          isAdmin: response.is_admin ? true : false
+        }, {
+          path: '/'
+        })
         alert('logou')
         window.location.href = '/logged'
       } else {
         alert('Senha ou Email incorreto(s)')
       }
+    }).catch((error) => {
+        alert('Conta nao existe')
     })
   }
    
