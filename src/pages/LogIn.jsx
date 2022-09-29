@@ -8,6 +8,8 @@ import Neumorfismo from '../styles/neumorfismo';
 import InputContainer from '../components/containers/InputContainer';
 import {Link} from 'react-router-dom'
 import { useState } from 'react';
+import Cookies from 'universal-cookie';
+import { AuthAPI } from '../data/api/hooks/services/AuthService';
 
 const LogIn = () => {
 
@@ -42,14 +44,43 @@ const LogIn = () => {
   ]
 
   const onChange = (e) => {
-    setValues({...values, [e.target.name]: e.target.value});
-    console.log(values)
+  }
+
+  const login = async (e) => {
+    e.preventDefault()
+    let emailValue = document.querySelector('#userEmail').value
+    let passwordValue = document.querySelector('#userPssword').value
+    const authAPI = AuthAPI()
+    authAPI.post("/auth", JSON.stringify({
+      email: emailValue,
+      password: passwordValue
+    })).then((result) => {
+      const response = result.data
+      if (response != 'Wrong Credentials') {
+        const cookies = new Cookies()
+        cookies.remove('userData')
+        cookies.set('userData', {
+          token: response.token,
+          id: response.id,
+          email: response.email,
+          isAdmin: response.is_admin ? true : false
+        }, {
+          path: '/'
+        })
+        alert('logou')
+        window.location.href = '/logged'
+      } else {
+        alert('Senha ou Email incorreto(s)')
+      }
+    }).catch((error) => {
+        alert('Conta nao existe')
+    })
   }
    
   return (
   <>
     <Neumorfismo/>
-    <FormContainer className='neumorph' method={header.method} onSubmit={(e) => e.preventDefault()}>
+    <FormContainer className='neumorph' method={header.method} onSubmit={login}>
       <Title size={30} color={colors.green}>{header.title}</Title>
       <div className='href'>
         <Link to={header.link}>{header.labelTitle}</Link>

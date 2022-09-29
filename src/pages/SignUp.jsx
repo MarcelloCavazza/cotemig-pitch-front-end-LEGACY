@@ -9,6 +9,9 @@ import InputContainer from '../components/containers/InputContainer';
 import { Combobox, Option } from '../components/inputs/Combobox'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { AuthAPI } from '../data/api/hooks/services/AuthService';
+import Cookies from 'universal-cookie';
+import { ClientAPI } from '../data/api/hooks/services/ClientService';
 
 const SignUp = () => {
 
@@ -19,6 +22,7 @@ const SignUp = () => {
     birthday: '',
     gender: '',
     password: '',
+    telephone: '',
     confirmPassword: '',
   });
 
@@ -43,6 +47,13 @@ const SignUp = () => {
       type: 'text', 
       name: 'email',
       id: 'userEmail',
+      isRequired: true,
+    },
+    {
+      title: 'Telephone',
+      type: 'text', 
+      name: 'telephone',
+      id: 'userTelephone',
       isRequired: true,
     },
     {
@@ -98,10 +109,60 @@ const SignUp = () => {
 
   const onChange = (e) => { setValues({...values, [e.target.name]: e.target.value}); };
 
+  const createAccont = async (e) => {
+    e.preventDefault()
+
+    const authApi = AuthAPI()
+    try {
+      const result  = await authApi.post("/create",
+      JSON.stringify({
+          ...values
+      }))
+      const userId = result.data.id
+      const userToken = result.data.token
+
+      const clientApi = ClientAPI(userToken)
+      try {
+        const email = document.querySelector('#userEmail').value
+        const cpf = document.querySelector('#userCpf').value
+        const name = document.querySelector('#name').value
+        const password = document.querySelector('#userPassword').value
+        const telephone = document.querySelector('#userTelephone').value
+
+        clientApi.post("/create",
+          JSON.stringify({
+            optionalId: userId,
+            name,
+            cpf,
+            email,
+            password,
+            telephone
+          })).then((result) => {
+            const response = result.data
+            const cookies = new Cookies()
+            if (response.is_active) {
+              cookies.set('userData', {
+                userId,
+                userToken,
+                email
+              }, {
+                path: '/'
+              })
+            }
+            window.location.href = '/logged'
+          })
+      } catch (error) {
+        console.log(error)
+      }
+    } catch (error) {
+      console.log(error) 
+    }
+  }
+  
   return (
   <>
     <Neumorfismo />
-    <FormContainer className='neumorph' method={header.method} onSubmit={(e) => e.preventDefault()}>
+    <FormContainer className='neumorph' method={header.method} onSubmit={createAccont}>
       <Title size={30} color={colors.green}>{header.title}</Title>
       <div className='href'>
         <Link to={header.link}>{header.labelTitle}</Link>
