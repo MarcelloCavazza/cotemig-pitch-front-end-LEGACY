@@ -15,6 +15,7 @@ const Input = ({title, placeholder, type, id, value, onChange, isRequired, name}
           onChange={onChange} 
           type={type}
           id={id} 
+          maxLength={14}
           value={value} 
           required={isRequired} 
           placeholder={placeholder}/>
