@@ -63,7 +63,7 @@ const LogIn = () => {
           token: response.token,
           id: response.id,
           email: response.email,
-          isAdmin: response.is_admin ? true : false
+          isAdmin: response.is_admin
         }, {
           path: '/'
         })
