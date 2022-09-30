@@ -10,10 +10,10 @@ const Logged = () => {
     const cookies = new Cookies()
 
     useEffect(() => {
-        const userData = cookies.get('userData')
+        const userData = cookies.get('userData') 
         if (userData) {
             setIsLogged(true)
-            if (userData.isAdmin) {
+            if (userData.isAdmin == 'true') {
                 setisAdmin(true)
             }
         }
