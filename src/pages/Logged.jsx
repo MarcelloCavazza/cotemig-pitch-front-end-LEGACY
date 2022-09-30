@@ -33,7 +33,7 @@ const Logged = () => {
         <p style={{ color:'white', display: isLogged ? 'none' : 'block' }}>Usuario nao esta logado</p>
         <p style={{ color:'white', display: isAdmin ? 'block' : 'none' }}>Usuario eh admin</p>
         <br></br>
-        <LogoutButton onClick={logout} style={{display: btnStyle}}  primary>{'Deslogar'}</LogoutButton>
+        <LogoutButton onClick={logout} style={{display: btnStyle, isLogged}}  primary>{'Deslogar'}</LogoutButton>
     </>
   );
 };
