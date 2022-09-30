@@ -56,7 +56,7 @@ const LogIn = () => {
       password: passwordValue
     })).then((result) => {
       const response = result.data
-      if (response != 'Wrong Credentials') {
+      if (response != 'Wrong Credentials' && response != '') {
         const cookies = new Cookies()
         cookies.remove('userData')
         cookies.set('userData', {
