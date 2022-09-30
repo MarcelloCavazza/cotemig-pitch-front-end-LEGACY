@@ -152,10 +152,10 @@ const SignUp = () => {
             window.location.href = '/logged'
           })
       } catch (error) {
-        console.log(error)
+        alert(error)
       }
     } catch (error) {
-      console.log(error) 
+      alert(error) 
     }
   }
   
