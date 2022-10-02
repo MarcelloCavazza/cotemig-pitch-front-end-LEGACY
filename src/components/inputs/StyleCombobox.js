@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import colors from "../../styles/colors";
+import colors from "../../global-styles/colors";
 
 const StyleCombobox = styled.div`
   position: relative;
@@ -19,9 +19,9 @@ const StyleCombobox = styled.div`
     margin: 0;
     font-family: inherit;
     border-radius: .5rem;
-    color: ${colors.white};
+    color: ${colors.absoluteLight};
     border: 3px solid ${colors.disabledInput};
-    background-color: ${colors.backgroundBlack};
+    background-color: ${colors.backgroundDark};
   }
 `;
 

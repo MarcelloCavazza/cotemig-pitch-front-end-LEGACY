@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import colors from "../../styles/colors";
+import colors from "../../global-styles/colors";
 import PropTypes from 'prop-types';
 import StyleCombobox from './StyleCombobox';
 import Label from "./Label";
@@ -12,7 +12,7 @@ export const Combobox = ({id, name, children, title, onChange}) => {
       <MainStyle />
       <StyleCombobox width={400}>
         <select placeholder="teste" onChange={onChange} className="styled select" name={name} id={id}>
-          <Option disabled selected value=''>Selectione uma opção</Option>
+          <Option disabled selected value=''>Selecione uma opção</Option>
           {children}
         </select>
         <span className="arrow"></span>
