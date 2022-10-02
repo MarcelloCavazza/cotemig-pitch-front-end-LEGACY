@@ -2,9 +2,8 @@ import React from 'react';
 import FormContainer from '../components/containers/FormContainer';
 import Input from '../components/inputs/Input';
 import Title from '../components/texts/Texts';
-import colors from '../styles/colors';
-import LoginButton from '../components/button/LoginButton';
-import Neumorfismo from '../styles/neumorfismo';
+import colors from '../global-styles/colors';
+import Button from '../components/buttons/Button';
 import InputContainer from '../components/containers/InputContainer';
 import {Link} from 'react-router-dom'
 import { useState } from 'react';
@@ -79,9 +78,8 @@ const LogIn = () => {
    
   return (
   <>
-    <Neumorfismo/>
     <FormContainer className='neumorph' method={header.method} onSubmit={login}>
-      <Title size={30} color={colors.green}>{header.title}</Title>
+      <Title size={30} color={colors.logoGreenOne}>{header.title}</Title>
       <div className='href'>
         <Link to={header.link}>{header.labelTitle}</Link>
       </div>
@@ -93,7 +91,7 @@ const LogIn = () => {
           value={values[input.name]}
           onChange={onChange} />)}
       </InputContainer>
-    <LoginButton primary>{header.button}</LoginButton>
+    <Button primary>{header.button}</Button>
     </FormContainer>
   </>
   )

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import colors from "../../styles/colors";
+import colors from "../../global-styles/colors";
 import PropTypes from 'prop-types';
 import StyleCombobox from './StyleCombobox';
 import Label from "./Label";

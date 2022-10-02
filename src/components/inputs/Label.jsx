@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colors from "../../styles/colors";
+import colors from "../../global-styles/colors";
 import React from "react";
 
 const Label = ({id, children, isRequired}) => {
@@ -23,7 +23,7 @@ const StyleLabel = styled.label`
   color: white;
   cursor: text;
   border-radius: 5px;
-  background-color: ${colors.backgroundBlack};
+  background-color: ${colors.backgroundDark};
   color: ${colors.disabledInput};
 `
 
