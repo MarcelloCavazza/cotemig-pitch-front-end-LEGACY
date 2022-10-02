@@ -1,23 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import colors from "../../styles/colors";
+import colors from "../../global-styles/colors";
 import PropTypes from 'prop-types';
 import StyleCombobox from './StyleCombobox';
 import Label from "./Label";
 import MainStyle from "./MainStyle";
+import IsRequired from "../extra/IsRequired";
 
-export const Combobox = ({id, name, children, title, onChange}) => {
+export const Combobox = ({id, name, children, title, onChange, isRequired}) => {
   return (
     <>
       <MainStyle />
       <StyleCombobox width={400}>
         <select placeholder="teste" onChange={onChange} className="styled select" name={name} id={id}>
-          <Option disabled selected value=''>Selectione uma opção</Option>
+          <Option disabled selected  value=''>Selectione uma opção</Option>
           {children}
         </select>
         <span className="arrow"></span>
         <Label isRequired className="label" htmlFor={id}>
-          {title}
+          {title} {isRequired ? <IsRequired /> : null}
         </Label>
       </StyleCombobox>
     </>
@@ -25,7 +26,7 @@ export const Combobox = ({id, name, children, title, onChange}) => {
 }
 
 export const Option = styled.option`
-  color: ${colors.white};
+  color: ${colors.absoluteLight};
 `;
 
 Combobox.propTypes = {

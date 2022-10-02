@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import StyleInput from './StyleInput';
 import MainStyle from './MainStyle';
 import Label from './Label';
+import IsRequired from '../extra/IsRequired';
 
-const Input = ({title, placeholder, type, id, value, onChange, isRequired, name}) => {
+const Input = ({children, placeholder, type, id, value, onChange, isRequired, name}) => {
   return (
     <>
       <MainStyle />
@@ -18,7 +19,7 @@ const Input = ({title, placeholder, type, id, value, onChange, isRequired, name}
           value={value} 
           required={isRequired} 
           placeholder={placeholder}/>
-        <Label id={id} isRequired>{title}</Label>
+        <Label id={id}>{children} {isRequired ? <IsRequired /> : null}</Label>
       </StyleInput>
     </>
   )

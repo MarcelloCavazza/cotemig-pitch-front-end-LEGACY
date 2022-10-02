@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colors from '../../styles/colors.js'
+import colors from '../../global-styles/colors.js'
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
@@ -21,7 +21,7 @@ const Links = styled.nav`
 
   & a {
     text-decoration: none;
-    color: ${colors.white};
+    color: ${colors.absoluteLight};
     mix-blend-mode: difference;
     font-size: 14pt;
   }

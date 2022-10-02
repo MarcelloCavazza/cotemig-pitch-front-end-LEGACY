@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Neumorfismo from '../styles/neumorfismo';
 import Cookies from 'universal-cookie';
-import LogoutButton from '../components/buttonLogout/LogOutButton';
+import Button from '../components/button/Button';
 
 const Logged = () => {
     const [isLogged, setIsLogged] = useState(false)
@@ -28,12 +27,11 @@ const Logged = () => {
 
   return (
     <>
-        <Neumorfismo />
         <p style={{ color:'white', display: isLogged ? 'block' : 'none' }}>Usuario esta logado</p>
         <p style={{ color:'white', display: isLogged ? 'none' : 'block' }}>Usuario nao esta logado</p>
         <p style={{ color:'white', display: isAdmin ? 'block' : 'none' }}>Usuario eh admin</p>
         <br></br>
-        <LogoutButton onClick={logout} style={{display: btnStyle}}  primary>{'Deslogar'}</LogoutButton>
+        <Button onClick={logout} style={{display: btnStyle}}  primary>{'Deslogar'}</Button>
     </>
   );
 };

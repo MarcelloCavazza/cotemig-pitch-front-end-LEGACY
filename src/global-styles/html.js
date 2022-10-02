@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import colors from "./colors";
 
-const GlobalStyle = createGlobalStyle`
+const HTML = createGlobalStyle`
   *, *::before, *::after{
     margin: 0;
     padding: 0;
@@ -11,10 +11,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     min-height: 100vh;
     font-family: Rubik, sans-serif;
-    background-color: ${colors.backgroundBlack};
-    color: ${colors.black};
+    background-color: ${colors.backgroundDark};
+    color: ${colors.absoluteDark};
   }
 
 `;
 
-export default GlobalStyle;
+export default HTML;

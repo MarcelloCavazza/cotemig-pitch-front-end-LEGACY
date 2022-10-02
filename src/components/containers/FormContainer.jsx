@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from '../../styles/colors'
+import colors from '../../global-styles/colors'
 
 const FormContainer = styled.form`
     display: flex;
@@ -23,7 +23,7 @@ const FormContainer = styled.form`
     }
 
     & a {
-        color: ${colors.blue};
+        color: ${colors.webLinksBlue};
         text-decoration: none;
     }
 
