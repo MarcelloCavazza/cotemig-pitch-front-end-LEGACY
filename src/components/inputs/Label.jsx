@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import colors from "../../global-styles/colors";
 import React from "react";
+import IsRequired from "../extras/isRequired";
 
 const Label = ({id, children, isRequired}) => {
   return (
     <StyleLabel htmlFor={id}>
       {children}
-      <span className='obligatory'>
-        {isRequired ? ' *' : ''}
-      </span>
+      {isRequired ? <IsRequired /> : <></>}
     </StyleLabel>
   )
 };

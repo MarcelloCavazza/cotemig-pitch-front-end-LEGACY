@@ -4,7 +4,7 @@ import StyleInput from './StyleInput';
 import MainStyle from './MainStyle';
 import Label from './Label';
 
-const Input = ({title, placeholder, type, id, value, onChange, isRequired, name}) => {
+const Input = ({children, placeholder, type, id, value, onChange, isRequired, name}) => {
   return (
     <>
       <MainStyle />
@@ -19,7 +19,7 @@ const Input = ({title, placeholder, type, id, value, onChange, isRequired, name}
           value={value} 
           required={isRequired} 
           placeholder={placeholder}/>
-        <Label id={id} isRequired>{title}</Label>
+        <Label id={id} isRequired={isRequired}>{children}</Label>
       </StyleInput>
     </>
   )

@@ -25,30 +25,12 @@ const LogIn = () => {
     button: 'Entrar'
   };
 
-  const inputs = [
-    {
-      title: 'Email',
-      type: 'text',
-      name: 'email',
-      id: 'userEmail',
-      isRequired: true,
-    },
-    {
-      title: 'Senha',
-      type: 'password', 
-      name: 'password',
-      id: 'userPssword',
-      isRequired: true,
-    },
-  ]
-
-  const onChange = (e) => {
-  }
+  const onChange = (e) => { setValues({...values, [e.target.name]: e.target.value}); }
 
   const login = async (e) => {
     e.preventDefault()
     let emailValue = document.querySelector('#userEmail').value
-    let passwordValue = document.querySelector('#userPssword').value
+    let passwordValue = document.querySelector('#userPassword').value
     const authAPI = AuthAPI()
     authAPI.post("/auth", JSON.stringify({
       email: emailValue,
@@ -84,12 +66,8 @@ const LogIn = () => {
         <Link to={header.link}>{header.labelTitle}</Link>
       </div>
       <InputContainer>
-        {inputs.map((input, index) => 
-        <Input 
-          key={index}
-          {...input}
-          value={values[input.name]}
-          onChange={onChange} />)}
+        <Input type='text' name='email' id='userEmail' onChange={onChange} isRequired>Email</Input>
+        <Input type='password' name='password' id='userPassword' onChange={onChange} isRequired>Senha</Input>
       </InputContainer>
     <Button primary>{header.button}</Button>
     </FormContainer>

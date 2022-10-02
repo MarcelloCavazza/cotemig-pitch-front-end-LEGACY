@@ -12,7 +12,7 @@ const MainStyle = createGlobalStyle`
     color: ${colors.logoGreenOne}88;
   }
 
-  /* Change element when its focus */
+  /* Change element when element is focus */
   & .styled:focus {
     border-color: ${colors.logoGreenOne};
   }
@@ -29,8 +29,8 @@ const MainStyle = createGlobalStyle`
   }
 
   /* Change element when invalid */
-  & .styled:not(:valid),
-  & .styled > & option:not(:valid) ~ & label{
+  & .styled:invalid,
+  & option:invalid ~ & label{
     color: ${colors.disabledInput};
   }
 
