@@ -1,7 +1,8 @@
 const blacks = {
   absoluteDark: '#000000',
-  backgroundDark: '#242424',
+  backgroundDark: '#222',
   disabledInput: '#555555',
+  footerDark: '#181717',
 }
 
 const whites = {
@@ -36,7 +37,7 @@ const purples = {
 }
 
 const logoColors = {
-  logoGreenOne: '#00E390',
+  logoGreenOne: '#03989E',
   
 }
 

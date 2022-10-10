@@ -72,7 +72,7 @@ const LogIn = () => {
         <Input type='text' name='email' id='userEmail' onChange={onChange} isRequired>Email</Input>
         <Input type='password' name='password' id='userPassword' onChange={onChange} isRequired>Senha</Input>
       </InputContainer>
-      <ButtonContainer>
+      <ButtonContainer fill>
         <FormButton><Link to='/'>{header.buttonBack}</Link></FormButton>
         <FormButton primary>{header.buttonEnter}</FormButton>
       </ButtonContainer>
