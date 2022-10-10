@@ -44,16 +44,18 @@ const SignUp = () => {
     try {
       const result  = await authApi.post("/create",
       JSON.stringify({
-          ...values
+        email: values.email,
+        password: values.password
       }))
       const userId = result.data.id
       const userToken = result.data.token
 
+      console.log(userToken)
       const clientApi = ClientAPI(userToken)
       try {
         const email = document.querySelector('#userEmail').value
         const cpf = document.querySelector('#userCpf').value
-        const name = document.querySelector('#name').value
+        const name = document.querySelector('#userName').value
         const password = document.querySelector('#userPassword').value
         const telephone = document.querySelector('#userTelephone').value
 
