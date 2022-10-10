@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import colors from "../../global-styles/colors";
 import React from "react";
-import IsRequired from "../extras/isRequired";
+import IsRequired from "../extras/IsRequired.jsx";
 
 const Label = ({id, children, isRequired}) => {
   return (
