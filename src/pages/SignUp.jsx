@@ -3,7 +3,7 @@ import FormContainer from '../components/containers/FormContainer';
 import Input from '../components/inputs/Input';
 import Title from '../components/texts/Texts';
 import colors from '../global-styles/colors';
-import Button from '../components/buttons/Button';
+import FormButton, { ButtonContainer } from '../components/buttons/FormButton';
 import InputContainer from '../components/containers/InputContainer';
 import { Combobox, Option } from '../components/inputs/Combobox'
 import { Link } from 'react-router-dom';
@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { AuthAPI } from '../data/api/hooks/services/AuthService';
 import Cookies from 'universal-cookie';
 import { ClientAPI } from '../data/api/hooks/services/ClientService';
+import Nothing from '../components/containers/Nothing';
 
 const SignUp = () => {
 
@@ -30,12 +31,13 @@ const SignUp = () => {
     title: 'Sign Up',
     link: '/login',
     labelTitle: 'Já tem uma conta? Faça o login aqui.',
-    button: 'Cadastrar'
+    buttonEnter: 'Cadastrar',
+    buttonBack: 'Voltar'
   };
 
   const onChange = (e) => { setValues({...values, [e.target.name]: e.target.value}); };
 
-  const createAccont = async (e) => {
+  const createAccount = async (e) => {
     e.preventDefault()
 
     const authApi = AuthAPI()
@@ -87,7 +89,8 @@ const SignUp = () => {
   
   return (
   <>
-    <FormContainer className='neumorph' method={header.method} onSubmit={createAccont}>
+    <Nothing />
+    <FormContainer className='neumorph' method={header.method} onSubmit={createAccount}>
       <Title size={30} color={colors.logoGreenOne}>{header.title}</Title>
       <div className='href'>
         <Link to={header.link}>{header.labelTitle}</Link>
@@ -107,8 +110,12 @@ const SignUp = () => {
         <Input type='password' name='confirmPassword' id='userConfPassword' onChange={onChange} isRequired>Confirmar Senha</Input>
 
       </InputContainer>
-    <Button primary>{header.button}</Button>
+      <ButtonContainer>
+        <FormButton><Link to='/'>{header.buttonBack}</Link></FormButton>
+        <FormButton primary>{header.buttonEnter}</FormButton>
+      </ButtonContainer>
     </FormContainer>
+    <Nothing />
   </>
   )
 }

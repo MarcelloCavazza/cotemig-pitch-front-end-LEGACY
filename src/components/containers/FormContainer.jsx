@@ -6,14 +6,11 @@ const FormContainer = styled.form`
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    border-radius: 10px;
     padding: 50px 25px;
 
     & h1 {
         margin-bottom: 20px;
-    }
-
-    & button {
-        margin-top: 10px;
     }
 
     .href {

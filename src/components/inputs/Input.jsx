@@ -1,39 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StyleInput from './StyleInput';
-import MainStyle from './MainStyle';
+import MainStyle, {InputStyle} from './MainStyle';
 import Label from './Label';
 
 const Input = ({children, placeholder, type, id, value, onChange, isRequired, name}) => {
   return (
     <>
       <MainStyle />
-      <StyleInput width={400}>
+      <InputStyle width={400}>
         <input
           name={name}
           className='styled input'
           onChange={onChange} 
           type={type}
-          id={id} 
-          maxLength={14}
+          id={id}
           value={value} 
           required={isRequired} 
           placeholder={placeholder}/>
         <Label id={id} isRequired={isRequired}>{children}</Label>
-      </StyleInput>
+      </InputStyle>
     </>
   )
 }
 
 Input.propTypes = {
   children: PropTypes.any.isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   id: PropTypes.string.isRequired,
   isRequired: PropTypes.bool
 }
 
 Input.defaultProps = {
-  children: '{{label}}',
   type: 'text',
   isRequired: false
 }

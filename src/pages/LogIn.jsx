@@ -3,12 +3,13 @@ import FormContainer from '../components/containers/FormContainer';
 import Input from '../components/inputs/Input';
 import Title from '../components/texts/Texts';
 import colors from '../global-styles/colors';
-import Button from '../components/buttons/Button';
+import FormButton, { ButtonContainer } from '../components/buttons/FormButton';
 import InputContainer from '../components/containers/InputContainer';
 import {Link} from 'react-router-dom'
 import { useState } from 'react';
 import Cookies from 'universal-cookie';
 import { AuthAPI } from '../data/api/hooks/services/AuthService';
+import Nothing from '../components/containers/Nothing';
 
 const LogIn = () => {
 
@@ -22,7 +23,8 @@ const LogIn = () => {
     title: 'Log In',
     link: '/signup',
     labelTitle: 'Não tem uma conta? Cadastre aqui.',
-    button: 'Entrar'
+    buttonEnter: 'Entrar',
+    buttonBack: 'Voltar'
   };
 
   const onChange = (e) => { setValues({...values, [e.target.name]: e.target.value}); }
@@ -60,6 +62,7 @@ const LogIn = () => {
    
   return (
   <>
+    <Nothing />
     <FormContainer className='neumorph' method={header.method} onSubmit={login}>
       <Title size={30} color={colors.logoGreenOne}>{header.title}</Title>
       <div className='href'>
@@ -69,7 +72,10 @@ const LogIn = () => {
         <Input type='text' name='email' id='userEmail' onChange={onChange} isRequired>Email</Input>
         <Input type='password' name='password' id='userPassword' onChange={onChange} isRequired>Senha</Input>
       </InputContainer>
-    <Button primary>{header.button}</Button>
+      <ButtonContainer>
+        <FormButton><Link to='/'>{header.buttonBack}</Link></FormButton>
+        <FormButton primary>{header.buttonEnter}</FormButton>
+      </ButtonContainer>
     </FormContainer>
   </>
   )
