@@ -110,7 +110,7 @@ const SignUp = () => {
         <Input type='password' name='confirmPassword' id='userConfPassword' onChange={onChange} isRequired>Confirmar Senha</Input>
 
       </InputContainer>
-      <ButtonContainer>
+      <ButtonContainer fill>
         <FormButton><Link to='/'>{header.buttonBack}</Link></FormButton>
         <FormButton primary>{header.buttonEnter}</FormButton>
       </ButtonContainer>
