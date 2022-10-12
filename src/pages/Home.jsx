@@ -1,9 +1,9 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import Footer from '../components/footer/Footer.jsx';
-import PolygonSection from './components/home/PolygonSection.jsx';
+import PolygonSection from '../components/landingpage/PolygonSection.jsx';
 import colors from '../global-styles/colors.js';
-import '../global-styles/globalCss.css'
+import '../global-styles/globalCss.css';
 
 const Home = () => {
   return (
