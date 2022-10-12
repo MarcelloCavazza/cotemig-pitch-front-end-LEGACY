@@ -8,19 +8,21 @@ import NoPage from './pages/NoPage.jsx';
 import SignUp from './pages/SignUp.jsx';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Logged from './pages/Logged.jsx';
+import Chatroom from './pages/Chatroom.jsx';
 
 function App(){
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout/>}>
-          <Route index element={<Home />}></Route>
-          <Route path='about' element={<AboutUs />}></Route>
-          <Route path='contact' element={<Contact />}></Route>
-          <Route path='login' element={<LogIn />}></Route>
-          <Route path='logged' element={<Logged />}></Route>
-          <Route path='signup' element={<SignUp />}></Route>
-          <Route path='*' element={<NoPage />}></Route>
+          <Route index element={<Home />} />
+          <Route path='about' element={<AboutUs />} />
+          <Route path='contact' element={<Contact />} />
+          <Route path='login' element={<LogIn />} />
+          <Route path='logged' element={<Logged />} />
+          <Route path='signup' element={<SignUp />} />
+          <Route path='chatroom' element={<Chatroom />}/>
+          <Route path='*' element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
