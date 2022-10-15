@@ -9,13 +9,9 @@ import ProfileImage from '../ProfileImage'
 const ChatHeader = () => {
   return (
     <Header>
-      <div className='container'>
-        <div className="contact-info-container">
-          <ProfileImage src={braga} width={50} />
-          <ContactName>Braga</ContactName>
-        </div>
-        <div className="contact-more-options">
-        </div>
+      <div className="contact-info-container">
+        <ProfileImage src={braga} width={50} />
+        <ContactName>Braga</ContactName>
       </div>
     </Header>
   )
@@ -24,25 +20,19 @@ const ChatHeader = () => {
 const Header = styled.div`
   width: 100%;
   height: 4rem;
-  background-color: ${colors.chatroomHeader};
+  background-color: ${colors.chatroomMainColor};
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  & .container {
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-  }
-
+  
   & .contact-info-container {
+    margin-left: 1rem;
     display: flex;
     align-items: center;
   }
 
-  & .contact-more-options img {
-    color: white;
+  & span {
+    margin-left: 1rem;
   }
 `
 

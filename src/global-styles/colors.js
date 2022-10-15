@@ -43,9 +43,11 @@ const logoColors = {
 }
 
 const chatRoom = {
-  chatroomHeader: '#013E40',
+  chatroomBackground: '#202224',
+  chatroomMainColor: '#253742',
   chatroomTextOnRead: '#A3A3A3',
-  chatroomBorderRight: '#3D3D3D',
+  chatroomBorder: '#3D3D3D',
+  chatroomSeparationBorder: '#354E5E',
 }
 
 const colors = {

@@ -25,8 +25,8 @@ const Searchbar = () => {
 }
 
 const Container = styled.div`
-  background-color: ${colors.backgroundDark};
-  padding: 1.2rem 1rem;
+  background-color: ${colors.chatroomBackground};
+  padding: .7rem;
   display: flex;
   align-items: center;
 
@@ -35,6 +35,7 @@ const Container = styled.div`
     height: 2.5rem;
     background-color: rgba(255,255,255, 0.07);
     border-radius: 5px;
+    padding-right: 0.5rem;
     display: flex;
     align-items: center;
     cursor: text;
