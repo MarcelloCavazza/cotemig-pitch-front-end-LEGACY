@@ -8,13 +8,11 @@ const ContactHeader = () => {
   return (
     <HeaderHead>
       <div className='header-user-info'>
-        <ProfileImage src={braga} alt="" width={50} height={50} />
+        <ProfileImage src={braga} width={50} height={50} />
         <div className='header-user-names'>
           <UserName>Braga</UserName>
           <CheckUserActivity>Online</CheckUserActivity>
         </div>
-      </div>
-      <div className="header-extra">
       </div>
     </HeaderHead>
   )
@@ -23,13 +21,14 @@ const ContactHeader = () => {
 const HeaderHead = styled.div`
   width: 100%;
   height: 4rem;
-  background-color: ${colors.chatroomHeader};
+  background-color: ${colors.chatroomMainColor};
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 
   & .header-user-info {
-    width: 80%;
+    width: 100%;
+    padding-left: 1rem;
   }
 
   & .header-extra,

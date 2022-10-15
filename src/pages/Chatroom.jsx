@@ -1,12 +1,14 @@
 import React, { Suspense } from 'react'
+import MainContainer from '../components/chatroom/MainContainer'
+import NavigationContainer from '../components/chatroom/navigation/NavigationBar'
 import ContactHeader from '../components/chatroom/navigation/ContactHeader'
 import ContactList from '../components/chatroom/navigation/ContactList'
 import Contact from '../components/chatroom/navigation/Contact'
+import ContactSearchBar from '../components/chatroom/searchbar/ContactSearchBar'
+import ChatContainer from '../components/chatroom/chat/ChatContainer'
 import ChatHeader from '../components/chatroom/chat/ChatHeader'
-import SearchBar from '../components/chatroom/searchbar/SearchBar'
-import MainContainer from '../components/chatroom/MainContainer'
-import NavigationTile from '../components/chatroom/navigation/NavigationBar'
 import ChatBody from '../components/chatroom/chat/ChatBody'
+import ChatTextArea from '../components/chatroom/chat/ChatTextArea'
 import LoadingChat from '../components/chatroom/LoadingChat'
 import { useState } from 'react'
 
@@ -15,14 +17,6 @@ const Chatroom = () => {
   const [selectedContact, handleContactClick] = useState();
   const [selectedChat, handleSelectChat] = useState();
 
-  const tempDynamicChat = [
-    {
-      id: 1,
-      contactName: 'Braga',
-      contactLastMessage: 'Conversando comigo mesmo!'
-    }
-  ]
-
   const onHandleContactClick = (event) => {
     console.log(event)
   }
@@ -30,21 +24,24 @@ const Chatroom = () => {
   return (
     <MainContainer>
       <div className='main'>
-        <NavigationTile>
+        <NavigationContainer>
           <ContactHeader />
-          <SearchBar />
+          <ContactSearchBar />
           <ContactList>
             <Suspense fallback={<LoadingChat />}>
-              <Contact onClick={onHandleContactClick}/>
+              <Contact onClick={onHandleContactClick} contactName='Braga' lastMessage='Eu chupo cachorro quente escondido'/>
             </Suspense>          
           </ContactList>
-        </NavigationTile>
-        <div className="message-container">
+        </NavigationContainer>
+        <ChatContainer>
           <ChatHeader />
-          <Suspense fallback={<LoadingChat />}>
-            <ChatBody />
-          </Suspense>
-        </div>
+          <ChatBody>
+            <Suspense fallback={<LoadingChat />}>
+              {/* COnditional Render dos chats aqui, criarei dois componentes para o chat, dependendo do usuário que digitou */}
+            </Suspense>
+          </ChatBody>
+          <ChatTextArea />
+        </ChatContainer>
       </div>
     </MainContainer>
   )

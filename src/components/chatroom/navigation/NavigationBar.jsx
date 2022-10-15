@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 
 const NavigationTile = styled.div`
-  background-color: ${colors.backgroundDark};
-  border-right: 1px solid ${colors.chatroomBorderRight};
+  background-color: ${colors.chatroomBackground};
+  border-right: 1px solid ${colors.chatroomSeparationBorder};
 `;
 
 export default NavigationTile;

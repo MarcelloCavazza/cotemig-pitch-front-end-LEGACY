@@ -10,13 +10,9 @@ const MainContainer = styled.div`
   & .main {
     width: 85vw;
     height: 95vh;
-    background-color: ${colors.backgroundLight};
     display: grid;
     grid-template-columns: 2fr 5fr;
-  }
-
-  & .message-container {
-    background-color: ${colors.backgroundDark};
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
   }
 `
 
