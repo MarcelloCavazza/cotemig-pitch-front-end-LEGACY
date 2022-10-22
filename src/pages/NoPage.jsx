@@ -1,13 +1,11 @@
-import React from 'react';
-import Header from '../components/header/Header.jsx';
+import React from "react";
 
 const NoPage = () => {
   return (
     <>
-      <Header />
       <h1>404!</h1>
     </>
-  )
-}
+  );
+};
 
 export default NoPage;

@@ -1,22 +1,29 @@
-import React from 'react'
-import styled from 'styled-components'
-import colors from '../../../global-styles/colors'
-import { ContactName, ContactLastMessage } from '../navigation/ContactTexts'
-import ProfileImage from '../ProfileImage'
+import React from "react";
+import styled from "styled-components";
+import colors from "../../../global-styles/colors";
+import braga from "../../../assets/ctt-team/braga.jpeg";
+import { ContactName, ContactLastMessage } from "../navigation/ContactTexts";
+import ProfileImage from "../ProfileImage";
 
-const Contact = ({onClick, lastMessage, contactName, contactImage, contactId}) => {
+const Contact = ({
+  onClick,
+  lastMessage,
+  contactName,
+  contactImage,
+  contactId,
+}) => {
   return (
-    <Container onClick={onClick} >
+    <Container onClick={onClick} contactId={contactId}>
       <div className="contact-container">
-        <ProfileImage src={contactImage} width={60} height={60} outline />
-        <div className='contact-info'>
+        <ProfileImage imageLink={contactImage} width={60} height={60} outline />
+        <div className="contact-info">
           <ContactName>{contactName}</ContactName>
           <ContactLastMessage>{lastMessage}</ContactLastMessage>
         </div>
       </div>
     </Container>
-  )
-}
+  );
+};
 
 export const Container = styled.div`
   width: 100%;
@@ -26,28 +33,28 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(255,255,255,0);
+  background-color: rgba(255, 255, 255, 0);
 
   &:hover {
-    background-color: rgba(255,255,255,0.05);
+    background-color: rgba(255, 255, 255, 0.05);
     cursor: pointer;
   }
 
   &:active,
   &:focus {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   & .contact-container {
     display: flex;
     align-items: center;
 
-    & .contact-info{
+    & .contact-info {
       margin-left: 1rem;
       display: flex;
       flex-direction: column;
     }
   }
-`
+`;
 
-export default Contact
+export default Contact;

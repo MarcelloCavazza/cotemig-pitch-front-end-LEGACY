@@ -1,5 +1,5 @@
-import styled, {keyframes} from "styled-components";
-import {AiOutlineLoading} from 'react-icons/ai'
+import styled, { keyframes } from "styled-components";
+import { AiOutlineLoading } from "react-icons/ai";
 import colors from "../../global-styles/colors";
 
 const LoadingChat = () => {
@@ -7,8 +7,8 @@ const LoadingChat = () => {
     <Container>
       <RotatingSpin />
     </Container>
-  )
-}
+  );
+};
 
 const rotate = keyframes`
   from {
@@ -24,14 +24,13 @@ const RotatingSpin = styled(AiOutlineLoading)`
   color: ${colors.logoGreenOne};
   font-size: 35pt;
   animation: ${rotate} 1s linear infinite;
-`
+`;
 const Container = styled.div`
-  width: 100%; 
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
-
-export default LoadingChat
+export default LoadingChat;
