@@ -21,7 +21,7 @@ const ChatTextArea = () => {
             console.log(textArea)
           }}
           required />
-          <button type="submit"><Send /></button>
+          <SendButton type="submit"><BiSend /></SendButton>
         </div>
       </TextArea>
     </form>
@@ -40,16 +40,16 @@ const TextArea = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.07);
+    background-color: rgba(255, 255, 255, 0.06);
     border-radius: 10px;
     margin: 0 1rem;
 
-    &:hover {
+    &:focus-within {
       background-color: rgba(255, 255, 255, 0.1);
     }
-
-    &:focus-within {
-      background-color: rgba(255, 255, 255, 0.13);
+    
+    &:focus-within ~ textarea {
+      color: black;
     }
     
     & textarea {
@@ -81,9 +81,30 @@ const TextArea = styled.div`
   }
 `
 
-const Send = styled(BiSend)`
+const SendButton = styled.button`
   color: ${colors.logoGreenTwo};
-  font-size: 15pt;
+  font-size: 16pt;
+  display: grid;
+  place-items: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 2.2rem;
+    height: 2.2rem;
+    transform: scale(0);
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 100%;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+  }
+
+  &:hover ~ &::before{
+    opacity: 1;
+    animation: opacity .2s ease;
+  }
 `
 
 export default ChatTextArea

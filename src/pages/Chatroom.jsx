@@ -30,6 +30,7 @@ const Chatroom = () => {
           <ContactList>
             <Suspense fallback={<LoadingChat />}>
               <Contact onClick={onHandleContactClick} contactName='Braga' lastMessage='Eu chupo cachorro quente escondido'/>
+              <Contact onClick={onHandleContactClick} contactName='Braga' lastMessage='Eu chupo cachorro quente escondido'/>
             </Suspense>          
           </ContactList>
         </NavigationContainer>
@@ -37,7 +38,7 @@ const Chatroom = () => {
           <ChatHeader />
           <ChatBody>
             <Suspense fallback={<LoadingChat />}>
-              {/* COnditional Render dos chats aqui, criarei dois componentes para o chat, dependendo do usuário que digitou */}
+              {/* Conditional Render dos chats aqui, criarei dois componentes para o chat, dependendo do usuário que digitou */}
             </Suspense>
           </ChatBody>
           <ChatTextArea />
