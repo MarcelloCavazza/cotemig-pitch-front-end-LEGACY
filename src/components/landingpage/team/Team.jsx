@@ -38,13 +38,13 @@ const Team = () => {
   return (
     <>
       <Style />
-      <article id="equipe">
+      <article className="equipe">
         <div className="container">
           {team.map((member, index) => (
             <div className="card" key={index}>
               <div className="contente">
                 <div className="img">
-                  <img src={member.img} alt="" />
+                  <img src={member.img} />
                 </div>
                 <div className="contentBx">
                   <h3>
