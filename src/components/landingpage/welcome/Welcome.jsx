@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import Header from "./Header";
+import video from "../../../assets/video.mp4";
 import { fadeIn, leftIn } from "./Animations";
 import SocialLinks from "./SocialLinks.jsx";
 import Themis from "./Themis.jsx";
@@ -32,7 +33,7 @@ const Welcome = () => {
           </p>
         </div>
         <div>
-          <video ref={videoRef} src="src/assets/video.mp4"></video>
+          <video ref={videoRef} src={video}></video>
         </div>
         <div>
           <Link to="/contact">Gostou da Ideia? Nos ajude...</Link>
