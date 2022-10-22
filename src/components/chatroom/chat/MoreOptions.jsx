@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const MoreOptions = () => {
-  return (
-    <div>MoreOptions</div>
-  )
-}
+  return <div>MoreOptions</div>;
+};
 
-export default MoreOptions
+export default MoreOptions;

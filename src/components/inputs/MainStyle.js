@@ -37,11 +37,11 @@ const MainStyle = createGlobalStyle`
   & .obligatory {
     font-weight: normal;
   }
-`
+`;
 
 export const InputStyle = styled.div`
   position: relative;
-  width: ${props => props.width ? props.width : 400}px;
+  width: ${(props) => (props.width ? props.width : 400)}px;
   height: 50px;
   margin: 10px 0;
 
@@ -57,7 +57,7 @@ export const InputStyle = styled.div`
     padding: 0 1rem;
     margin: 0;
     font-family: inherit;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     color: ${colors.absoluteLight};
     border: 3px solid ${colors.disabledInput};
     background-color: ${colors.backgroundDark};

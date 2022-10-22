@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const Style = createGlobalStyle`
 
@@ -76,6 +76,6 @@ const Style = createGlobalStyle`
     font-weight: 300;
     text-transform: initial;
   }
-`
+`;
 
 export default Style;

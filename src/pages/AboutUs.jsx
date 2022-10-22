@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const AboutUs = () => {
-  return (
-    <>
-    aboutUs
-    </>
-  )
-}
+  return <>aboutUs</>;
+};
 
 export default AboutUs;

@@ -1,54 +1,46 @@
 const blacks = {
-  absoluteDark: '#000000',
-  backgroundDark: '#1a1c1d',
-  disabledInput: '#555555',
-  footerDark: '#181717',
-}
+  absoluteDark: "#000000",
+  backgroundDark: "#1a1c1d",
+  disabledInput: "#555555",
+  footerDark: "#181717",
+};
 
 const whites = {
-  webLinks: '#FCFCFC',
-  absoluteLight: '#FFFFFF',
-  backgroundLight: '#EDEDED',
-}
+  webLinks: "#FCFCFC",
+  absoluteLight: "#FFFFFF",
+  backgroundLight: "#EDEDED",
+};
 
 const reds = {
-  invalidRed: '#EB2926',
-}
+  invalidRed: "#EB2926",
+};
 
-const oranges = {
-  
-}
+const oranges = {};
 
 const yellows = {
-  yellow: '#F5E513', // Inútil por enquanto
-}
+  yellow: "#F5E513", // Inútil por enquanto
+};
 
-const greens = {
-  
-}
-
+const greens = {};
 
 const blues = {
-  webLinksBlue: '#007AF5',
-}
+  webLinksBlue: "#007AF5",
+};
 
-const purples = {
-  
-}
+const purples = {};
 
 const logoColors = {
-  logoGreenOne: '#03989E',
-  logoGreenTwo: '#04CFD6',
-  
-}
+  logoGreenOne: "#03989E",
+  logoGreenTwo: "#04CFD6",
+};
 
 const chatRoom = {
-  chatroomBackground: '#202224',
-  chatroomMainColor: '#253742',
-  chatroomTextOnRead: '#A3A3A3',
-  chatroomBorder: '#3D3D3D',
-  chatroomSeparationBorder: '#354E5E',
-}
+  chatroomBackground: "#202224",
+  chatroomMainColor: "#253742",
+  chatroomTextOnRead: "#A3A3A3",
+  chatroomBorder: "#3D3D3D",
+  chatroomSeparationBorder: "#354E5E",
+};
 
 const colors = {
   ...whites,
@@ -61,6 +53,6 @@ const colors = {
   ...purples,
   ...logoColors,
   ...chatRoom,
-}
+};
 
 export default colors;

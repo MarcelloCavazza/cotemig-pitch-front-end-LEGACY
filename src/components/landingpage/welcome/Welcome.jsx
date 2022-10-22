@@ -1,51 +1,52 @@
-import React, { useRef } from 'react'
-import styled from 'styled-components';
-import Header from './Header'
-import { fadeIn, leftIn } from './Animations';
-import SocialLinks from './SocialLinks.jsx';
-import Themis from './Themis.jsx';
-import colors from '../../../global-styles/colors';
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-
+import React, { useRef } from "react";
+import styled from "styled-components";
+import Header from "./Header";
+import { fadeIn, leftIn } from "./Animations";
+import SocialLinks from "./SocialLinks.jsx";
+import Themis from "./Themis.jsx";
+import colors from "../../../global-styles/colors";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Welcome = () => {
-  
-  const videoRef = useRef(null)
+  const videoRef = useRef(null);
 
-  useEffect(
-    () => {
-      videoRef.current.controls = true
-      videoRef.current.volume = .1
-      videoRef.current.currentTime = 0
-    },
-    []
-  )
+  useEffect(() => {
+    videoRef.current.controls = true;
+    videoRef.current.volume = 0.1;
+    videoRef.current.currentTime = 0;
+  }, []);
 
   return (
-  <Section>
-    <Header />
-    <Content>
-    <div>
-      <h2>Consultoria Tech Themis</h2>
-      <p>Você está cansado de procurar e procurar vários advogados na internet, ou pedir indicações para amigos, mas nunca com a certeza de que ele é realmente confiável? Então eu te apresento a CTT, uma empresa especializada em agilizar e facilitar o seu contato com advogados de confiança.</p>
-    </div>
-    <div>
-      <video ref={videoRef} src="src/assets/video.mp4"></video>
-    </div>
-    <div>
-      <Link to="/contact">Gostou da Ideia? Nos ajude...</Link>
-    </div>
-    </Content>
-    <Themis />
-    <SocialLinks />
-  </Section>
-  )
-}
+    <Section>
+      <Header />
+      <Content>
+        <div>
+          <h2>Consultoria Tech Themis</h2>
+          <p>
+            Você está cansado de procurar e procurar vários advogados na
+            internet, ou pedir indicações para amigos, mas nunca com a certeza
+            de que ele é realmente confiável? Então eu te apresento a CTT, uma
+            empresa especializada em agilizar e facilitar o seu contato com
+            advogados de confiança.
+          </p>
+        </div>
+        <div>
+          <video ref={videoRef} src="src/assets/video.mp4"></video>
+        </div>
+        <div>
+          <Link to="/contact">Gostou da Ideia? Nos ajude...</Link>
+        </div>
+      </Content>
+      <Themis />
+      <SocialLinks />
+    </Section>
+  );
+};
 
 const Content = styled.div`
   animation: ${leftIn} var(--duration) var(--fast) forwards;
-  animation-delay: .1s;
+  animation-delay: 0.1s;
   padding: 100px 50px 100px 150px;
 
   & h2 {
@@ -68,12 +69,12 @@ const Content = styled.div`
     color: white;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: .9rem;
+    font-size: 0.9rem;
     font-weight: normal;
     letter-spacing: 1px;
-    
+
     &:hover {
-    text-decoration: underline;
+      text-decoration: underline;
     }
   }
 
@@ -81,9 +82,9 @@ const Content = styled.div`
     margin: 1rem 0;
     border: 4px solid transparent;
     outline: 3px solid ${colors.logoGreenOne};
-    border-radius: .5rem;
+    border-radius: 0.5rem;
   }
-`
+`;
 
 const Section = styled.section`
   position: relative;
@@ -94,12 +95,12 @@ const Section = styled.section`
   min-height: 100vh;
   widows: 100%;
 
-  &:before{
+  &:before {
     animation: ${fadeIn} var(--duration) var(--fast-slow) forwards;
     animation-delay: 1s;
     opacity: 0;
     position: absolute;
-    content: '';
+    content: "";
     top: 0;
     left: 0;
     width: 100%;
@@ -107,7 +108,6 @@ const Section = styled.section`
     background-color: ${colors.logoGreenOne};
     clip-path: var(--polygon);
   }
-`
+`;
 
-
-export default Welcome
+export default Welcome;

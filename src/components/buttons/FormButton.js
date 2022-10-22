@@ -8,24 +8,25 @@ const FormButton = styled.button`
   font-weight: bold;
   border: 2px solid ${colors.logoGreenOne};
   border-radius: 5px;
-  background-color: ${props => props.primary ? colors.logoGreenOne : 'transparent'};
-  color: ${props => props.primary ? 'black' : 'white'};
-  
-  &:hover{
+  background-color: ${(props) =>
+    props.primary ? colors.logoGreenOne : "transparent"};
+  color: ${(props) => (props.primary ? "black" : "white")};
+
+  &:hover {
     text-decoration: underline;
     cursor: pointer;
   }
 
-  & a{
+  & a {
     color: inherit;
   }
-`
+`;
 
 export const ButtonContainer = styled.div`
   display: block;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-`
+`;
 
 export default FormButton;

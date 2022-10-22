@@ -32,6 +32,6 @@ const Style = createGlobalStyle`
       color: #03989E;
       font-size: 50px;
   }
-`
+`;
 
 export default Style;

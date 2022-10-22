@@ -1,39 +1,43 @@
-import React, { useState } from 'react'
-import { BiSend } from 'react-icons/bi'
-import styled from 'styled-components'
-import colors from '../../../global-styles/colors'
+import React, { useState } from "react";
+import { BiSend } from "react-icons/bi";
+import styled from "styled-components";
+import colors from "../../../global-styles/colors";
 
 const ChatTextArea = () => {
-
-  const [textArea, setTextArea] = useState('')
+  const [textArea, setTextArea] = useState("");
 
   return (
-    <form action="/" method='post'> { /* Colocar url devida */ }
+    <form action="/" method="post">
+      {" "}
+      {/* Colocar url devida */}
       <TextArea>
         <div className="container">
-          <textarea 
-          cols={2} 
-          maxLength={2000} 
-          placeholder='Escreva sua mensagem' 
-          value={textArea}
-          onChange={(e) => {
-            setTextArea(e.target.value)
-            console.log(textArea)
-          }}
-          required />
-          <SendButton type="submit"><BiSend /></SendButton>
+          <textarea
+            cols={2}
+            maxLength={2000}
+            placeholder="Escreva sua mensagem"
+            value={textArea}
+            onChange={(e) => {
+              setTextArea(e.target.value);
+              console.log(textArea);
+            }}
+            required
+          />
+          <SendButton type="submit">
+            <BiSend />
+          </SendButton>
         </div>
       </TextArea>
     </form>
-  )
-}
+  );
+};
 
 const TextArea = styled.div`
   height: 4rem;
   background-color: ${colors.chatroomMainColor};
   display: flex;
   align-items: center;
-  
+
   & .container {
     width: 100%;
     height: 3rem;
@@ -47,11 +51,11 @@ const TextArea = styled.div`
     &:focus-within {
       background-color: rgba(255, 255, 255, 0.1);
     }
-    
+
     &:focus-within ~ textarea {
       color: black;
     }
-    
+
     & textarea {
       padding: 0rem 0px 0px 1rem;
       font-family: inherit;
@@ -72,14 +76,14 @@ const TextArea = styled.div`
       background-color: transparent;
       border: 0;
       border-radius: 10px;
-      padding: .4rem;
+      padding: 0.4rem;
 
       &:hover {
         cursor: pointer;
       }
     }
   }
-`
+`;
 
 const SendButton = styled.button`
   color: ${colors.logoGreenTwo};
@@ -101,10 +105,10 @@ const SendButton = styled.button`
     left: 6px;
   }
 
-  &:hover ~ &::before{
+  &:hover ~ &::before {
     opacity: 1;
-    animation: opacity .2s ease;
+    animation: opacity 0.2s ease;
   }
-`
+`;
 
-export default ChatTextArea
+export default ChatTextArea;

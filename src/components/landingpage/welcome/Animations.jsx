@@ -12,7 +12,7 @@ export const leftIn = keyframes`
     transform: translateX(0px);
     opacity: 1;
   }
-`
+`;
 
 export const fadeIn = keyframes`
   0%
@@ -24,6 +24,6 @@ export const fadeIn = keyframes`
   {
     opacity: 1;
   }
-`
+`;
 
-export default {fadeIn, leftIn}
+export default { fadeIn, leftIn };
