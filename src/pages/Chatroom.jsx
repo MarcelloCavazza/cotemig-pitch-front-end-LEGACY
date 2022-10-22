@@ -14,11 +14,11 @@ import { useState } from 'react'
 
 const Chatroom = () => {
 
-  const [selectedContact, handleContactClick] = useState();
-  const [selectedChat, handleSelectChat] = useState();
+  const [selectedContact, setSelectedContact] = useState('');
+  const [selectedChat, setSelectedChat] = useState();
 
-  const onHandleContactClick = (event) => {
-    console.log(event)
+  const handleContactClick = (prop) => {
+    setSelectedContact(prop.target.value)
   }
 
   return (
@@ -29,16 +29,15 @@ const Chatroom = () => {
           <ContactSearchBar />
           <ContactList>
             <Suspense fallback={<LoadingChat />}>
-              <Contact onClick={onHandleContactClick} contactName='Braga' lastMessage='Eu chupo cachorro quente escondido'/>
-              <Contact onClick={onHandleContactClick} contactName='Braga' lastMessage='Eu chupo cachorro quente escondido'/>
+              <Contact onClick={handleContactClick} contactName='Mãe' lastMessage='1- Lavar a pia  2- Passar pano no chão  3- Varrer... '/>
             </Suspense>          
           </ContactList>
         </NavigationContainer>
         <ChatContainer>
-          <ChatHeader />
+          <ChatHeader/>
           <ChatBody>
             <Suspense fallback={<LoadingChat />}>
-              {/* Conditional Render dos chats aqui, criarei dois componentes para o chat, dependendo do usuário que digitou */}
+              {/* Conditional Render dos chats aqui */}
             </Suspense>
           </ChatBody>
           <ChatTextArea />

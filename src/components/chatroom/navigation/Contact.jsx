@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import colors from '../../../global-styles/colors'
+import braga from '../../../assets/ctt-team/braga.jpeg'
 import { ContactName, ContactLastMessage } from '../navigation/ContactTexts'
 import ProfileImage from '../ProfileImage'
 
 const Contact = ({onClick, lastMessage, contactName, contactImage, contactId}) => {
   return (
-    <Container onClick={onClick} >
+    <Container onClick={onClick} contactId={contactId}>
       <div className="contact-container">
-        <ProfileImage src={contactImage} width={60} height={60} outline />
+        <ProfileImage imageLink={contactImage} width={60} height={60} outline />
         <div className='contact-info'>
           <ContactName>{contactName}</ContactName>
           <ContactLastMessage>{lastMessage}</ContactLastMessage>
