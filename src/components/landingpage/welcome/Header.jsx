@@ -41,10 +41,8 @@ const Header = () => {
 
 const NavLink = styled.li`
   list-style: none;
-  display: flex;
-  justify-content: center;
   margin: 0 .5rem;
-  border-radius: 10px;
+  border-radius: .5rem;
   border: 2px solid ${props => (props.login || props.signup) ? colors.logoGreenOne : 'transparent'};
   background-color: ${props => props.signup ? colors.logoGreenOne : 'transparent'};
   
@@ -80,15 +78,11 @@ const NavLink = styled.li`
 `;
 
 const NavBar = styled.ul`
-  position: absolute;
-  animation: ${leftIn} var(--duration) var(--fast) forwards;
-  animation-delay: 0s;
-  opacity: 0;
-  left: 150px;
-  top: 75px;
+  grid-area: header;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   border-left: 5px solid ${colors.logoGreenOne};
+  padding-left: .5rem;
 `;
 
 export default Header;
