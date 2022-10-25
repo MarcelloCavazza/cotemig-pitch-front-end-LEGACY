@@ -1,36 +1,13 @@
 {
     "rewrites": [
         {
-            "source": "/",
-            "destination": "/"
-        },
-        {
-            "source": "/about",
-            "destination": "/"
-        },
-        {
-            "source": "/contact",
-            "destination": "/"
-        },
-        {
-            "source": "/login",
-            "destination": "/"
-        },
-        {
-            "source": "/logged",
-            "destination": "/"
-        },
-        {
-            "source": "/signup",
-            "destination": "/"
-        },
-        {
-            "source": "/chatroom",
-            "destination": "/"
-        },
-        {
-            "source": "/*",
-            "destination": "/"
+            "routes": [
+                {
+                    "src": "/[^.]+",
+                    "dest": "/",
+                    "status": 200
+                }
+            ]
         }
     ],
     "cleanUrls": true
