@@ -19,6 +19,13 @@ const FormContainer = styled.form`
     justify-content: right;
   }
 
+  .label {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: rgba(255,255,255,.7);
+  }
+
   & a {
     color: ${colors.webLinksBlue};
     text-decoration: none;

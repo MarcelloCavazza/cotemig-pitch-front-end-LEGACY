@@ -1,26 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link as LinkRouter } from "react-router-dom";
+import { Link as Scroll } from 'react-scroll'
 import { leftIn } from "./Animations";
 import styled from "styled-components";
 import colors from "../../../global-styles/colors";
 import "../../../global-styles/globalCss.css";
 
 const Header = () => {
+
+  const scroll = {
+    spy: true,
+    smooth: true
+  }
+
   return (
     <NavBar className="nav" id="nav">
       <NavLink primary>
-        <Link to="/">Home</Link>
+        <LinkRouter to="/">Home</LinkRouter>
       </NavLink>
       <NavLink>
-        <Link to="/about">Sobre Nós</Link>
+        <Scroll to="about" {...scroll}>Sobre Nós</Scroll>
       </NavLink>
       <NavLink>
-        <Link to="/plans">Planos</Link>
+        <Scroll to="plans" {...scroll}>Planos</Scroll>
       </NavLink>
       <NavLink>
-        <Link to="/team">Equipe</Link>
+        <Scroll to="team" {...scroll}>Equipe</Scroll>
       </NavLink>
       <NavLink>
-        <Link to="/contact">Contatos</Link>
+        <Scroll to="contact" {...scroll}>Contatos</Scroll>
+      </NavLink>
+      <NavLink login>
+        <LinkRouter to='/login'>Login</LinkRouter>
+      </NavLink>
+      <NavLink signup>
+        <LinkRouter to='/signup'>Cadastrar</LinkRouter>
       </NavLink>
     </NavBar>
   );
@@ -28,22 +41,41 @@ const Header = () => {
 
 const NavLink = styled.li`
   list-style: none;
-
+  display: flex;
+  justify-content: center;
+  margin: 0 .5rem;
+  border-radius: 10px;
+  border: 2px solid ${props => (props.login || props.signup) ? colors.logoGreenOne : 'transparent'};
+  background-color: ${props => props.signup ? colors.logoGreenOne : 'transparent'};
+  
   & a {
     color: ${(props) =>
-      props.primary ? colors.logoGreenOne : colors.webLinks};
+      props.primary 
+        ? colors.logoGreenOne 
+        : colors.webLinks
+    };
     text-decoration: none;
-    margin-right: 30px;
+    padding: ${props => (props.login || props.signup) ? '5px 10px' : '5px 2px'};
     font-size: 1em;
-    opacity: 0.7;
     text-transform: uppercase;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  & a.active,
+  &:active{
+    outline: 3px solid ${
+      props => 
+      (props.login || props.signup) 
+      ? `${colors.logoGreenTwo}` 
+      : 'transparent'};
+  }
+
   & a:hover {
-    opacity: 1;
-    color: ${colors.logoGreenOne};
+    color: ${props => props.signup ? 'black' : ''};
+    text-decoration: underline;
+    cursor: pointer;
   }
 `;
 
@@ -55,8 +87,8 @@ const NavBar = styled.ul`
   left: 150px;
   top: 75px;
   display: flex;
-  border-left: 5px solid ${colors.logoGreenOne}88;
-  padding-left: 15px;
+  justify-content: center;
+  border-left: 5px solid ${colors.logoGreenOne};
 `;
 
 export default Header;

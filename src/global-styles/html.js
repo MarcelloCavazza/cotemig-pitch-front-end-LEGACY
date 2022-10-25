@@ -7,10 +7,10 @@ const HTML = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-
+  
   body {
-    min-height: 100vh;
     font-family: Rubik, sans-serif;
+    min-height: 100vh;
     background-color: ${colors.backgroundDark};
     color: ${colors.absoluteDark};
   }

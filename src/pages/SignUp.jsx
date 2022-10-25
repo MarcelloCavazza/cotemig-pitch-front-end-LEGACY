@@ -20,8 +20,8 @@ const SignUp = () => {
     cpf: "",
     birthday: "",
     gender: "",
-    password: "",
     telephone: "",
+    password: "",
     confirmPassword: "",
   });
 
@@ -184,7 +184,7 @@ const SignUp = () => {
             Confirmar Senha
           </Input>
         </InputContainer>
-        <ButtonContainer fill>
+        <ButtonContainer>
           <FormButton>
             <Link to="/">{header.buttonBack}</Link>
           </FormButton>

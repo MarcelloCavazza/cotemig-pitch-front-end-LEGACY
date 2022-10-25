@@ -3,6 +3,7 @@ const blacks = {
   backgroundDark: "#1a1c1d",
   disabledInput: "#555555",
   footerDark: "#181717",
+  contactForm: '#202324',
 };
 
 const whites = {
