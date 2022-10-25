@@ -1,12 +1,12 @@
 import React from "react";
 import Style from "./style";
 
-const Plans = () => {
+const Plans = ({id}) => {
   return (
-    <>
+    <div id={id}>
       <Style />
-      <h1 id="plano">Planos Para Advogados:</h1>
-      <main>
+      <main className="plano">
+        <h1>Planos Para Advogados:</h1>
         <div className="caixa">
           <div className="carde neumorph">
             <div className="box">
@@ -105,8 +105,8 @@ const Plans = () => {
           </div>
         </div>
       </main>
-      <h1>Taxa Opcional Para Clientes:</h1>
-      <main>
+      <main className="plano">
+        <h1>Taxa Opcional Para Clientes:</h1>
         <div className="caixa">
           <div className="carde neumorph">
             <div className="box">
@@ -129,7 +129,7 @@ const Plans = () => {
           </div>
         </div>
       </main>
-    </>
+    </div>
   );
 };
 

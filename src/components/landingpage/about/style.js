@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
-const Style = createGlobalStyle`
+const Container = styled.div`
   & .sobreempresa{
       display: flex;
       justify-content: center;
@@ -34,4 +34,4 @@ const Style = createGlobalStyle`
   }
 `;
 
-export default Style;
+export default Container;

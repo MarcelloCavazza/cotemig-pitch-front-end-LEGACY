@@ -6,7 +6,7 @@ import marcello from "../../../assets/ctt-team/marcello.jpeg";
 import avila from "../../../assets/ctt-team/avila.png";
 import Style from "./style";
 
-const Team = () => {
+const Team = ({id}) => {
   const team = [
     {
       img: braga,
@@ -38,7 +38,7 @@ const Team = () => {
   return (
     <>
       <Style />
-      <article className="equipe">
+      <article className="equipe" id={id}>
         <div className="container">
           {team.map((member, index) => (
             <div className="card" key={index}>

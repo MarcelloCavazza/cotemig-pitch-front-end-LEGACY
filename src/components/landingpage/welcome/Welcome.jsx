@@ -5,6 +5,7 @@ import video from "../../../assets/video.mp4";
 import { fadeIn, leftIn } from "./Animations";
 import SocialLinks from "./SocialLinks.jsx";
 import Themis from "./Themis.jsx";
+import LandingButton from "../../buttons/LandingButton";
 import colors from "../../../global-styles/colors";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -36,7 +37,9 @@ const Welcome = () => {
           <video ref={videoRef} src={video}></video>
         </div>
         <div>
-          <Link to="/contact">Gostou da Ideia? Nos ajude...</Link>
+          <LandingButton href='contact'>
+            Gostou da Ideia? Nos ajude...
+          </LandingButton>
         </div>
       </Content>
       <Themis />
@@ -60,23 +63,6 @@ const Content = styled.div`
     font-size: 1rem;
     margin-top: 10px;
     color: white;
-  }
-
-  & a {
-    padding: 10px 25px;
-    background-color: ${colors.logoGreenOne};
-    border-radius: 5px;
-    border: 0;
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    font-weight: normal;
-    letter-spacing: 1px;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   & video {
