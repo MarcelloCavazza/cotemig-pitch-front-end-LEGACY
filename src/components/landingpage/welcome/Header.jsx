@@ -22,28 +22,49 @@ const Header = () => {
       <NavLink>
         <Link to="/contact">Contatos</Link>
       </NavLink>
+      <NavLink login>
+        <Link to='/login'>Login</Link>
+      </NavLink>
+      <NavLink signup>
+        <Link to='/signup'>Cadastrar</Link>
+      </NavLink>
     </NavBar>
   );
 };
 
 const NavLink = styled.li`
   list-style: none;
-
+  display: flex;
+  justify-content: center;
+  margin: 0 .5rem;
+  border-radius: 10px;
+  border: 2px solid ${props => (props.login || props.signup) ? colors.logoGreenOne : 'transparent'};
+  background-color: ${props => props.signup ? colors.logoGreenOne : 'transparent'};
+  
   & a {
     color: ${(props) =>
       props.primary ? colors.logoGreenOne : colors.webLinks};
     text-decoration: none;
-    margin-right: 30px;
+    padding: ${props => (props.login || props.signup) ? '5px 10px' : '5px 2px'};
     font-size: 1em;
-    opacity: 0.7;
     text-transform: uppercase;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  & a.active,
+  &:active{
+    outline: 3px solid ${
+      props => 
+      (props.login || props.signup) 
+      ? `${colors.logoGreenTwo}` 
+      : 'transparent'};
+  }
+
   & a:hover {
-    opacity: 1;
-    color: ${colors.logoGreenOne};
+    color: ${props => props.signup ? 'black' : ''};
+    text-decoration: underline;
   }
 `;
 
@@ -55,8 +76,8 @@ const NavBar = styled.ul`
   left: 150px;
   top: 75px;
   display: flex;
-  border-left: 5px solid ${colors.logoGreenOne}88;
-  padding-left: 15px;
+  justify-content: center;
+  border-left: 5px solid ${colors.logoGreenOne};
 `;
 
 export default Header;
