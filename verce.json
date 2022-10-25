@@ -1,8 +1,8 @@
 {
-    "rewrites": [
+    "routes": [
         {
-            "src": "/signup",
-            "dest": "/signup",
+            "src": "/[^.]+",
+            "dest": "/",
             "status": 200
         }
     ],
