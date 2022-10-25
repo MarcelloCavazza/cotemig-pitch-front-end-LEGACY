@@ -1,13 +1,9 @@
 {
     "rewrites": [
         {
-            "routes": [
-                {
-                    "src": "/signup",
-                    "dest": "/signup",
-                    "status": 200
-                }
-            ]
+            "src": "/signup",
+            "dest": "/signup",
+            "status": 200
         }
     ],
     "cleanUrls": true
