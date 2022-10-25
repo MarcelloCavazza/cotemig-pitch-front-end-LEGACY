@@ -67,7 +67,7 @@ const Content = styled.div`
   }
 `;
 
-const CTTSpan = styled.span`
+export const CTTSpan = styled.span`
   font-weight: bold;
   color: ${colors.logoGreenOne};
 `

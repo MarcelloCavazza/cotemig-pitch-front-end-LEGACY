@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import colors from "../../../global-styles/colors";
 import Header from "./Header";
 import SocialLinks from "./SocialLinks.jsx";
 import Themis from "./Themis.jsx";
 import HelloContent from "./HelloContent";
-import { useEffect } from "react";
+import ULine from "../Uline";
 
 const Welcome = () => {
   return (
@@ -25,11 +25,10 @@ const Welcome = () => {
 const Section = styled.section`
   & .section-container { 
     display: grid;
-    place-items: left;
-    align-items: center;
+    place-items: center start;
     position: relative;
     width: 90vw;
-    height: 100vh;
+    min-height: 100vh;
     grid-template-areas:
       'header themis'
       'hello  themis'
