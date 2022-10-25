@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "../../../global-styles/colors";
-import braga from "../../../assets/ctt-team/braga.jpeg";
 import { ContactName, ContactLastMessage } from "../navigation/ContactTexts";
 import ProfileImage from "../ProfileImage";
 

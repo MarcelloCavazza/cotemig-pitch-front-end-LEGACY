@@ -31,7 +31,7 @@ const Chatroom = () => {
               <Contact
                 onClick={handleContactClick}
                 contactName="Mãe"
-                lastMessage="1- Lavar a pia  2- Passar pano no chão  3- Varrer... "
+                lastMessage=""
               />
             </Suspense>
           </ContactList>
