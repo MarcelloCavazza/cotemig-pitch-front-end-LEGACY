@@ -1,0 +1,6 @@
+:root {
+  --fast: 2s cubic-bezier(0.300, 0.000, 0.000, 0.900);
+  --fast-slow: 2s cubic-bezier(0.100, 0.350, 0.650, 1);
+  --duration: 1.2s;
+  --polygon: polygon(83% 0, 100% 0, 100% 50%, 100% 100%, 51% 100%, 72% 35%);
+}
