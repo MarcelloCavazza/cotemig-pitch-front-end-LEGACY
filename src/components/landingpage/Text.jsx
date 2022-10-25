@@ -5,7 +5,7 @@ const Text = styled.p`
   font-weight: 200;
   letter-spacing: .5px;
   text-align: justify;
-  font-size: 1.3rem;
+  font-size: ${props => props.size ? `${props.size}rem` : '1.3rem'};
 `
 
 export default Text
