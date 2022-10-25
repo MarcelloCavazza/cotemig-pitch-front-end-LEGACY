@@ -1,5 +1,5 @@
 import React from "react";
-import braga from "../../../assets/ctt-team/braga.jpeg";
+import contactImage from "../../../assets/user-default.jpg";
 import styled from "styled-components";
 import colors from "../../../global-styles/colors";
 import ProfileImage from "../ProfileImage";
@@ -8,7 +8,7 @@ const ContactHeader = () => {
   return (
     <HeaderHead>
       <div className="header-user-info">
-        <ProfileImage imageLink={braga} width={50} height={50} />
+        <ProfileImage imageLink={contactImage} width={50} height={50} />
         <div className="header-user-names">
           <UserName>Braga</UserName>
           <CheckUserActivity>Online</CheckUserActivity>
