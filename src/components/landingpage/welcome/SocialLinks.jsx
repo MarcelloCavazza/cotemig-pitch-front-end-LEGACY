@@ -19,13 +19,10 @@ const SocialLinks = () => {
 };
 
 const Nav = styled.ul`
-  position: absolute;
-  left: 150px;
-  bottom: 75px;
-  animation: left-in var(--duration) var(--fast) forwards;
-  animation-delay: 0.2s;
-  opacity: 0;
+  grid-area: links;
+  width: 20rem;
   display: flex;
+  justify-content: space-between;
 
   & li {
     list-style: none;
@@ -34,7 +31,6 @@ const Nav = styled.ul`
   & li a {
     color: #999;
     text-decoration: none;
-    margin-right: 30px;
     font-size: 0.9em;
   }
 
