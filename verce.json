@@ -3,8 +3,8 @@
         {
             "routes": [
                 {
-                    "src": "/[^.]+",
-                    "dest": "/",
+                    "src": "/signup",
+                    "dest": "/signup",
                     "status": 200
                 }
             ]
