@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Section = styled.div`
   width: 90%;
-  min-height: 60vh;
+  min-height: 100vh;
   display: grid;
   place-items: center;
   grid-template-columns: 8fr 4fr;

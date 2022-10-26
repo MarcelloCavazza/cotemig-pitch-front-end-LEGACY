@@ -1,34 +1,40 @@
 import React from "react";
 import braga from "../../../assets/ctt-team/braga.jpeg";
 import leh from "../../../assets/ctt-team/leh.jpeg";
-import larissa from "../../../assets/ctt-team/larissa.jpeg";
+import larissa from "../../../assets/ctt-team/larissa.jpg";
 import marcello from "../../../assets/ctt-team/marcello.jpeg";
 import avila from "../../../assets/ctt-team/avila.png";
-import Style from "./style";
+import Section from "./style";
+import Member from "./Member";
 
 const Team = ({id}) => {
   const team = [
     {
+      color: 'rgba(59, 187, 0, .3)',
       img: braga,
       name: "Arthur Braga",
       desc: "Desenvolvedor Back-End",
     },
     {
+      color: 'rgba(156, 0, 156, .3)',
       img: leh,
       name: "Letícia Cavazza",
       desc: "Design",
     },
     {
+      color: 'rgba(214, 0, 54, .3)',
       img: larissa,
-      name: "Larissa",
-      desc: "Desenvolvedora Front-End",
+      name: "Larissa Pedrosa",
+      desc: "UI/UX Designer",
     },
     {
+      color: 'rgba(59, 187, 0, .3)',
       img: marcello,
       name: "Marcello Cavaza",
       desc: "Desenvolvedor Back-End",
     },
     {
+      color: 'rgba(0, 40, 73, .3)',
       img: avila,
       name: "Pedro Ávila",
       desc: "Desenvolvedor Front-End",
@@ -36,29 +42,13 @@ const Team = ({id}) => {
   ];
 
   return (
-    <>
-      <Style />
-      <article className="equipe" id={id}>
-        <div className="container">
-          {team.map((member, index) => (
-            <div className="card" key={index}>
-              <div className="contente">
-                <div className="img">
-                  <img src={member.img} />
-                </div>
-                <div className="contentBx">
-                  <h3>
-                    {member.name}
-                    <br />
-                    <span>{member.desc}</span>
-                  </h3>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </article>
-    </>
+    <Section id={id}>
+      <div className="team-container">
+        {
+          team.map(member => <Member {...member} />)
+        }
+      </div>
+    </Section>
   );
 };
 
