@@ -1,10 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
 import Title from '../Title'
+import anime from 'animejs'
+import { useEffect } from 'react';
 
 const Member = ({img, name, desc, color}) => {
+
+  useEffect(() => {
+    anime({
+      targets: `#animator`,
+      scale: [.7, 1],
+      opacity: [0, 1],
+      easing: 'easeInOutQuad',
+      delay: anime.stagger(50)
+    })
+  })
+
   return (
-    <Container color={color}>
+    <Container id='animator' color={color}>
       <img src={img} />
       <Title className='title' size={1.3}>{name}</Title>
       <span className='desc'>{desc}</span>

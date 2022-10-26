@@ -3,19 +3,22 @@ import colors from "../../../global-styles/colors";
 
 const Section = styled.div`
   width: 100%;
-  min-height: 100vh;
+  min-height: 70vh;
   position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   
   & .team-container {
     width: 90vw;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
   }
 
-  &::before {
+  /* &::before {
     content: '';
     position: absolute;
     top: 0;
@@ -27,10 +30,10 @@ const Section = styled.div`
       ${colors.logoGreenOne},
       ${colors.logoGreenTwo}
     );
-    clip-path: circle(35% at right 90%);
+    clip-path: circle(20% at right 50%);
     z-index: -1;
     overflow: visible;
-  }
+  } */
 `;
 
 export default Section;

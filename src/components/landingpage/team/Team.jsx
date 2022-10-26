@@ -6,8 +6,15 @@ import marcello from "../../../assets/ctt-team/marcello.jpeg";
 import avila from "../../../assets/ctt-team/avila.png";
 import Section from "./style";
 import Member from "./Member";
+import Title from "../Title";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import anime from "animejs";
 
 const Team = ({id}) => {
+
+  const {ref: myRef, inView: isVisible} = useInView()
+
   const team = [
     {
       color: 'rgba(59, 187, 0, .3)',
@@ -42,12 +49,18 @@ const Team = ({id}) => {
   ];
 
   return (
-    <Section id={id}>
-      <div className="team-container">
-        {
-          team.map(member => <Member {...member} />)
-        }
-      </div>
+    <Section id={id} ref={myRef}>
+      {
+        isVisible && 
+        <>
+          <Title>Conheça o time</Title>
+          <div className="team-container">
+            {
+              team.map(member => <Member {...member} />)
+            }
+          </div>
+        </>
+      }
     </Section>
   );
 };
