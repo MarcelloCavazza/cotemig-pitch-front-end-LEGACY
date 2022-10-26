@@ -88,6 +88,10 @@ const CardStyle = styled.div`
     flex-direction: column;
     align-items: center;
   }
+
+  & .card-specs {
+    height: 7.5rem;
+  }
 `
 
 export default Card
