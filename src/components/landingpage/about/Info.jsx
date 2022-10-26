@@ -1,5 +1,5 @@
 import React from 'react'
-import Title from '../Title'
+import Title from '../../texts/Title'
 import Text from '../Text'
 import styled from 'styled-components'
 import {CTTSpan} from '../welcome/HelloContent'
@@ -7,7 +7,7 @@ import {CTTSpan} from '../welcome/HelloContent'
 const Info = () => {
   return (
     <Style>
-      <Title>Sobre Nós</Title>
+      <Title size={3}>Sobre Nós</Title>
       
       <Text>Aposto que você cansou de perder seu tempo procurando um advogado para consultoria. Já imaginou uma plataforma online, 24/7, confiável, segura e prática? Bom, você está à procura da <CTTSpan>Consultoria Tech Themis</CTTSpan>.
       </Text>

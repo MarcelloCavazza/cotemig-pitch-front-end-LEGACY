@@ -6,10 +6,8 @@ import marcello from "../../../assets/ctt-team/marcello.jpeg";
 import avila from "../../../assets/ctt-team/avila.png";
 import Section from "./style";
 import Member from "./Member";
-import Title from "../Title";
-import { useEffect } from "react";
+import Title from "../../texts/Title"; 
 import { useInView } from "react-intersection-observer";
-import anime from "animejs";
 
 const Team = ({id}) => {
 
@@ -17,31 +15,31 @@ const Team = ({id}) => {
 
   const team = [
     {
-      color: 'rgba(59, 187, 0, .3)',
+      color: '#00a560',
       img: braga,
       name: "Arthur Braga",
       desc: "Desenvolvedor Back-End",
     },
     {
-      color: 'rgba(156, 0, 156, .3)',
+      color: '#9c009c',
       img: leh,
       name: "Letícia Cavazza",
       desc: "Design",
     },
     {
-      color: 'rgba(214, 0, 54, .3)',
+      color: '#002849',
       img: larissa,
       name: "Larissa Pedrosa",
-      desc: "UI/UX Designer",
+      desc: "Desenvolvedora Front End",
     },
     {
-      color: 'rgba(59, 187, 0, .3)',
+      color: '#00a560',
       img: marcello,
       name: "Marcello Cavaza",
       desc: "Desenvolvedor Back-End",
     },
     {
-      color: 'rgba(0, 40, 73, .3)',
+      color: '#002849',
       img: avila,
       name: "Pedro Ávila",
       desc: "Desenvolvedor Front-End",
@@ -53,7 +51,7 @@ const Team = ({id}) => {
       {
         isVisible && 
         <>
-          <Title>Conheça o time</Title>
+          <Title size={3}>Conheça o time</Title>
           <div className="team-container">
             {
               team.map(member => <Member {...member} />)

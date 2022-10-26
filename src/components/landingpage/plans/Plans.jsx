@@ -1,7 +1,7 @@
 import React from "react";
 import { useInView } from 'react-intersection-observer'
 import Section from "./style";
-import Title from '../Title'
+import Title from '../../texts/Title'
 import Cards from './Cards'
 import { FaPaperPlane, FaPlane, FaRocket } from 'react-icons/fa'
 

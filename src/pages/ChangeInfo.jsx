@@ -5,7 +5,7 @@ import Input from '../components/inputs/Input';
 import InputContainer from '../components/containers/InputContainer';
 import FormButton, {ButtonContainer} from '../components/buttons/FormButton'
 import FormContainer from '../components/containers/FormContainer';
-import Title from '../components/texts/Texts';
+import Title from '../components/texts/Title';
 import { Combobox, Option } from '../components/inputs/Combobox'
 import colors from '../global-styles/colors';
 

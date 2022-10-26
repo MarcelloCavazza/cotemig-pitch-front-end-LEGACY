@@ -1,7 +1,7 @@
 import React from "react";
 import FormContainer from "../components/containers/FormContainer";
 import Input from "../components/inputs/Input";
-import Title from "../components/texts/Texts";
+import Title from "../components/texts/Title";
 import colors from "../global-styles/colors";
 import FormButton, { ButtonContainer } from "../components/buttons/FormButton";
 import InputContainer from "../components/containers/InputContainer";
@@ -108,7 +108,7 @@ const SignUp = () => {
         method={header.method}
         onSubmit={createAccount}
       >
-        <Title size={30} color={colors.logoGreenOne}>
+        <Title size={2} color={colors.logoGreenOne}>
           {header.title}
         </Title>
         <div className="href">
