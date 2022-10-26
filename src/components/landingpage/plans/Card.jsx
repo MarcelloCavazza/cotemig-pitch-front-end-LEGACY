@@ -57,6 +57,7 @@ const CardStyle = styled.div`
     & * {
       filter:drop-shadow(2px 2px 1px rgba(0,0,0, .2))
     }
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
   }
 
   & .card-info {
@@ -77,7 +78,8 @@ const CardStyle = styled.div`
     font-size: 1rem;
     font-weight: bold;
     color: white;
-    text-shadow: 0 1px 1px rgba(0,0,0,.7);
+    text-shadow: 1px 2px 1px rgba(0,0,0,.5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     padding: .6rem 1.1rem;
     text-decoration: none;
   }
