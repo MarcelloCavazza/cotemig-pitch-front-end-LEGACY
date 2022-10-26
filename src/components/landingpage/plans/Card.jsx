@@ -3,10 +3,23 @@ import styled from 'styled-components'
 import Title from '../Title'
 import Text from '../Text'
 import {ImCross, ImCheckmark} from 'react-icons/im'
+import { useEffect } from 'react'
+import anime from 'animejs'
 
 const Card = ({color, icon, title, price, positive, negative}) => {
+
+  useEffect(() => {
+    anime({
+      targets: `#card-animator`,
+      scale: [.7, 1],
+      opacity: [0, 1],
+      easing: 'easeInOutQuad',
+      delay: anime.stagger(50)
+    })
+  })
+
   return (
-    <CardStyle color={color}>
+    <CardStyle id='card-animator' color={color}>
       <div className="card-icon">
         {icon}
       </div>

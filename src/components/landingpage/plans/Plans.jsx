@@ -1,10 +1,13 @@
 import React from "react";
+import { useInView } from 'react-intersection-observer'
 import Section from "./style";
 import Title from '../Title'
 import Cards from './Cards'
 import { FaPaperPlane, FaPlane, FaRocket } from 'react-icons/fa'
 
 const Plans = ({id}) => {
+  
+  const {ref: myRef, inView: isVisible} = useInView()
 
   const plans = [
     {
@@ -77,8 +80,9 @@ const Plans = ({id}) => {
   ]
 
   return (
-    <Section id={id}>
+    <Section ref={myRef} id={id}>
       {
+        isVisible &&
         plans.map(plano => 
           <div className="cards-container" key={plano.type}>
             <Title size={2}>{plano.type}</Title>

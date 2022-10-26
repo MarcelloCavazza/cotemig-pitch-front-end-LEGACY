@@ -8,7 +8,7 @@ const Member = ({img, name, desc, color}) => {
 
   useEffect(() => {
     anime({
-      targets: `#animator`,
+      targets: `#member-animator`,
       scale: [.7, 1],
       opacity: [0, 1],
       easing: 'easeInOutQuad',
@@ -17,7 +17,7 @@ const Member = ({img, name, desc, color}) => {
   })
 
   return (
-    <Container id='animator' color={color}>
+    <Container id='member-animator' color={color}>
       <img src={img} />
       <Title className='title' size={1.3}>{name}</Title>
       <span className='desc'>{desc}</span>
