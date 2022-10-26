@@ -6,10 +6,8 @@ import marcello from "../../../assets/ctt-team/marcello.jpeg";
 import avila from "../../../assets/ctt-team/avila.png";
 import Section from "./style";
 import Member from "./Member";
-import Title from "../Title";
-import { useEffect } from "react";
+import Title from "../../texts/Title"; 
 import { useInView } from "react-intersection-observer";
-import anime from "animejs";
 
 const Team = ({id}) => {
 
@@ -53,7 +51,7 @@ const Team = ({id}) => {
       {
         isVisible && 
         <>
-          <Title>Conheça o time</Title>
+          <Title size={3}>Conheça o time</Title>
           <div className="team-container">
             {
               team.map(member => <Member {...member} />)

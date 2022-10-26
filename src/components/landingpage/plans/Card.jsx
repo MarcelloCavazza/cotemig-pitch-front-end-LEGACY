@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Title from '../Title'
+import Title from '../../texts/Title'
 import Text from '../Text'
 import {ImCross, ImCheckmark} from 'react-icons/im'
 import { useEffect } from 'react'

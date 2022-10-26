@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import Container from './style.js'
-import Nothing from '../../containers/Nothing'
+import Section from './style.js' 
+import Title from '../../texts/Title'
+import ContactLabel from './ContactLabel.jsx'
+import {AiOutlinePhone, AiOutlineMail} from 'react-icons/ai'
 import LandingButton from '../../buttons/LandingButton'
+import ULine from '../ULine'
 import mail from '../../../assets/icons/mail.png'
 import call from '../../../assets/icons/call.png'
 import face from '../../../assets/icons/face.png'
@@ -12,9 +15,8 @@ const Contact = ({id}) => {
 
   const [values, setValues] = useState({
     name: '',
-    surname: '',
     email: '',
-    phonenumber: '',
+    title: '',
     text: ''
   });
 
@@ -23,78 +25,23 @@ const Contact = ({id}) => {
   };
 
   return (
-  <Container id={id}>
-    <div className="contact">
-      <div className="contactInfo">
-        <div>
-          <h2>Contato</h2>
-          <ul className="info">
-            <li>
-              <span><img src={mail}/></span>
-              <span>techthemis@gmail.com</span>
-            </li>
-            <li>
-              <span><img src={call}/></span>
-              <span>3259-0984</span>
-            </li>
-          </ul>
-        </div>
-        <ul className="sci">
-          <li><a href="#"><img src={face}/></a></li>
-          <li><a href="#"><img src={insta}/></a></li>
-          <li><a href="#"><img src={link}/></a></li>
-        </ul>
+  <Section id={id}>
+    <div className="message-container">
+      <Title size={1.4}>Entre em contato com a gente!</Title>
+      <div className="input-container">
+        <input type="text" placeholder='Nome' onChange={onChange} />
+        <input type="email" placeholder='Email' onChange={onChange} />
+        <input type="text" placeholder='Assunto' onChange={onChange} />
+        <textarea cols="30" rows="10" placeholder='Mensagem' onChange={onChange}></textarea>
       </div>
-      <div className="contactForm">
-        <h2>Envie sua Mensagem</h2>
-        <div className="formbox">
-          <div className="input w50">
-            <input
-             type="text" 
-             required 
-             placeholder="Nome"/>
-          </div>
-          <div className="input w50">
-            <input
-             type="text" 
-             required 
-             placeholder="Sobrenome"
-             onChange={onChange}/>
-          </div>
-          <div className="input w50">
-            <input
-             type="email" 
-             required 
-             placeholder="Email"
-             onChange={onChange}/>
-          </div>
-          <div className="input w50">
-            <input
-             type="text" 
-             required 
-             placeholder="Telefone"
-             onChange={onChange}/>
-          </div>
-          <div className="input w100">
-            <textarea 
-              name="" 
-              id="" 
-              cols="30" 
-              rows="4" 
-              placeholder="Escreva sua mensagem..."
-              required
-              onChange={onChange}></textarea>
-          </div>
-          <form action="/">
-            <LandingButton button type='submit'>
-              Enviar
-            </LandingButton>
-          </form>
-        </div>
+      <hr />
+      <div className="contact-container">
+        <ContactLabel value='contato@techthemis.com' icon={<AiOutlineMail />}/>
+        <ContactLabel value='(31) 3259-0984' icon={<AiOutlinePhone />}/>
       </div>
+      <LandingButton button type='submit'>Enviar</LandingButton>
     </div>
-    <Nothing height={20} />
-  </Container>
+  </Section>
  )
 }
 
