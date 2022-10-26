@@ -5,7 +5,7 @@ import Header from "./Header";
 import SocialLinks from "./SocialLinks.jsx";
 import Themis from "./Themis.jsx";
 import HelloContent from "./HelloContent";
-import ULine from "../Uline";
+import ULine from "../ULine";
 
 const Welcome = () => {
   return (
