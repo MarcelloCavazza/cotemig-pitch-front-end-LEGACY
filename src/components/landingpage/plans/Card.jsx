@@ -13,6 +13,7 @@ const Card = ({color, icon, title, price, positive, negative}) => {
       targets: `#card-animator`,
       scale: [.7, 1],
       opacity: [0, 1],
+      duration: 750,
       easing: 'easeInOutQuad',
       delay: anime.stagger(50)
     })

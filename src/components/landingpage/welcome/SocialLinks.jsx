@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const SocialLinks = () => {
+const SocialLinks = ({className}) => {
   return (
-    <Nav>
+    <Nav className={className}>
       <li>
         <Link to="/">Facebook</Link>
       </li>

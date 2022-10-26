@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 
-const HelloContent = () => {
+const HelloContent = ({className}) => {
 
   const videoRef = useRef(null);
 
@@ -17,7 +17,7 @@ const HelloContent = () => {
   }, []);
 
   return (
-    <Content>
+    <Content className={className}>
       <div>
         <h2>Consultoria Tech Themis</h2>
         <p className='paragraph'>É complicado procurar advogados na internet, mas você já passou por problemas para achar um, que seja confiável e que faça um bom trabalho? Demorou bastante para resolver aquele B.O?</p>
