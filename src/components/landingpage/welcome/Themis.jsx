@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { fadeIn } from "./Animations";
 import themisLanding from "../../../assets/themis-landing.png";
 import "../../../global-styles/globalCss.css";
 
-const Themis = () => {
+const Themis = ({className}) => {
   return (
-    <Style>
+    <Style className={className}>
       <img src={themisLanding} />
     </Style>
   );

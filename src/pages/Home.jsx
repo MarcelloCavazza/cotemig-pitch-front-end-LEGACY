@@ -12,7 +12,6 @@ const Home = () => {
   return (
     <>
       <Welcome />
-      <ULine />
       <About id='about' />
       <ULine />
       <Plans id='plans' />

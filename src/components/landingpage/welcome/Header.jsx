@@ -1,11 +1,10 @@
 import { Link as LinkRouter } from "react-router-dom";
 import { Link as Scroll } from 'react-scroll'
-import { leftIn } from "./Animations";
 import styled from "styled-components";
 import colors from "../../../global-styles/colors";
 import "../../../global-styles/globalCss.css";
 
-const Header = () => {
+const Header = ({className}) => {
 
   const scroll = {
     spy: true,
@@ -13,7 +12,7 @@ const Header = () => {
   }
 
   return (
-    <NavBar className="nav" id="nav">
+    <NavBar className={className}>
       <NavLink primary>
         <LinkRouter to="/">Home</LinkRouter>
       </NavLink>

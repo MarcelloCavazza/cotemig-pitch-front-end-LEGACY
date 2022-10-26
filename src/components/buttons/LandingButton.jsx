@@ -31,6 +31,7 @@ const Button = styled.button`
   font-size: 0.9rem;
   font-weight: normal;
   letter-spacing: 1px;
+  text-shadow: 0 2px 3px rgba(0,0,0,.5);
 
   &:hover {
     text-decoration: underline;
@@ -49,6 +50,7 @@ const SLink = styled(Link)`
   font-size: 0.9rem;
   font-weight: normal;
   letter-spacing: 1px;
+  text-shadow: 0 2px 3px rgba(0,0,0,.5);
 
   &:hover {
     text-decoration: underline;

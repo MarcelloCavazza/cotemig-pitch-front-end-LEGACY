@@ -3,10 +3,24 @@ import styled from 'styled-components'
 import Title from '../Title'
 import Text from '../Text'
 import {ImCross, ImCheckmark} from 'react-icons/im'
+import { useEffect } from 'react'
+import anime from 'animejs'
 
 const Card = ({color, icon, title, price, positive, negative}) => {
+
+  useEffect(() => {
+    anime({
+      targets: `#card-animator`,
+      scale: [.7, 1],
+      opacity: [0, 1],
+      duration: 750,
+      easing: 'easeInOutQuad',
+      delay: anime.stagger(50)
+    })
+  })
+
   return (
-    <CardStyle color={color}>
+    <CardStyle id='card-animator' color={color}>
       <div className="card-icon">
         {icon}
       </div>
@@ -41,10 +55,15 @@ const CardStyle = styled.div`
   aspect-ratio: 3/4;
   width: 20rem;
   padding: 1.3rem 0;
-  background-color: rgba(255, 255, 255, 0.01);
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   border-radius: 10px;
   backdrop-filter: blur(10px);
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, .02),
+    rgba(0, 0, 0, .05),
+    rgba(255, 255, 255, .02)
+  );
 
   & .card-icon {
     display: flex;
@@ -57,6 +76,7 @@ const CardStyle = styled.div`
     & * {
       filter:drop-shadow(2px 2px 1px rgba(0,0,0, .2))
     }
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
   }
 
   & .card-info {
@@ -77,7 +97,8 @@ const CardStyle = styled.div`
     font-size: 1rem;
     font-weight: bold;
     color: white;
-    text-shadow: 0 1px 1px rgba(0,0,0,.7);
+    text-shadow: 0 2px 3px rgba(0,0,0,.5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     padding: .6rem 1.1rem;
     text-decoration: none;
   }
@@ -87,6 +108,10 @@ const CardStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  & .card-specs {
+    height: 7.5rem;
   }
 `
 

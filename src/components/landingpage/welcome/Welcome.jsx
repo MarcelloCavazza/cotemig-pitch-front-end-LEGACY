@@ -1,26 +1,54 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect } from "react";
+import styled, {keyframes} from "styled-components";
 import colors from "../../../global-styles/colors";
 import Header from "./Header";
 import SocialLinks from "./SocialLinks.jsx";
 import Themis from "./Themis.jsx";
 import HelloContent from "./HelloContent";
-import ULine from "../Uline";
+import anime from "animejs";
 
 const Welcome = () => {
+
+  useEffect(() => {
+    anime({
+      targets: ['.nav', '.hello', '.links'],
+      translateX: [250, 0],
+      opacity: [0, 1],
+      duration: 1250,
+      easing: 'easeInOutQuad',
+      delay: anime.stagger(200)
+    })
+    anime({
+      targets: '.themis',
+      opacity: [0, 1],
+      easing: 'easeInOutQuad',
+      duration: 500,
+      delay: 1250
+    })
+  })
+
   return (
     <Section>
       <div className="section-container">
-        <Header />
-        <HelloContent />
-        <SocialLinks />
-        <Themis />
+        <Header className='nav'/>
+        <HelloContent className='hello'/>
+        <SocialLinks className='links'/>
+        <Themis className='themis'/>
       </div>
     </Section>
   );
 };
 
 
+const opacity = keyframes`
+  0%, 60%{
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`
 
 const Section = styled.section`
   & .section-container { 
@@ -44,9 +72,13 @@ const Section = styled.section`
     inset: 0;
     width: 100%;
     height: 100%;
+    animation-name: ${opacity};
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
     background-color: ${colors.logoGreenOne};
     clip-path: var(--polygon);
   }
 `;
+
 
 export default Welcome;
