@@ -14,7 +14,7 @@ const Card = ({color, icon, title, price, positive, negative}) => {
       scale: [.7, 1],
       opacity: [0, 1],
       duration: 750,
-      easing: 'easeInOutQuad',
+      easing: 'easeInOutCubic',
       delay: anime.stagger(50)
     })
   })
@@ -26,7 +26,7 @@ const Card = ({color, icon, title, price, positive, negative}) => {
       </div>
       <div className="card-info">
         <Title size={1.4}>{title}</Title>
-        <Text size={2}>R$ <span>{price}0</span></Text>
+        <Text className='card-price' size={2}>R$ <span>{price}0</span></Text>
         <div className="card-specs">
           {positive.map(pos => 
           <div key={pos} className="card-info-tile">
@@ -64,8 +64,10 @@ const CardStyle = styled.div`
     rgba(0, 0, 0, .05),
     rgba(255, 255, 255, .02)
   );
-
+  
   & .card-icon {
+    transition: transform .3s ease-in-out;
+    transform: scale(1);
     display: flex;
     font-size: 2.5em;
     padding: 1rem;
@@ -101,6 +103,10 @@ const CardStyle = styled.div`
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     padding: .6rem 1.1rem;
     text-decoration: none;
+
+    &:hover {
+      background-color: ${props => props.color}99;
+    }
   }
 
   & .card-info-tile {

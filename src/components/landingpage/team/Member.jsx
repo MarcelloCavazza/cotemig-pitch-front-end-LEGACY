@@ -11,8 +11,8 @@ const Member = ({img, name, desc, color}) => {
       targets: `#member-animator`,
       scale: [.7, 1],
       opacity: [0, 1],
-      duration: 750,
-      easing: 'easeInQuad',
+      duration: 1000,
+      easing: 'easeInOutCubic',
       delay: anime.stagger(50)
     })
   })

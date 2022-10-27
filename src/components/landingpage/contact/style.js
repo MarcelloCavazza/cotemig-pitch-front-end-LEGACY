@@ -64,6 +64,7 @@ const Section = styled.div`
     & button {
       margin-top: 0;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, .3);
+      font-size: 1.1rem;
     }
   }
   
