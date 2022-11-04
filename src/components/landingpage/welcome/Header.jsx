@@ -2,13 +2,33 @@ import { Link as LinkRouter } from "react-router-dom";
 import { Link as Scroll } from 'react-scroll'
 import styled from "styled-components";
 import colors from "../../../global-styles/colors";
+import {useState, useEffect} from 'react'
+import Cookies from "universal-cookie";
+
 import "../../../global-styles/globalCss.css";
 
-const Header = ({className}) => {
+const Header = ({ className }) => {
+  const cookies = new Cookies();
+  const [isLogged, setIsLogged] = useState(false)
+  
+  useEffect(() => {
+    if (cookies.get('token')) {
+      setIsLogged(true)
+    } else {
+      setIsLogged(false)
+    }
+  }, [])
+  
+
 
   const scroll = {
     spy: true,
     smooth: true
+  }
+
+  const logout = () => {
+    cookies.remove('token')
+    setIsLogged(false)
   }
 
   return (
@@ -29,10 +49,10 @@ const Header = ({className}) => {
         <Scroll to="contact" {...scroll}>Contatos</Scroll>
       </NavLink>
       <NavLink login>
-        <LinkRouter to='/login'>Login</LinkRouter>
+        <LinkRouter to={isLogged ? '/chatroom':'/login'}>{isLogged ? 'Chats' : 'Entrar'}</LinkRouter>
       </NavLink>
       <NavLink signup>
-        <LinkRouter to='/signup'>Cadastrar</LinkRouter>
+        <LinkRouter to={isLogged ? '/' : '/signup'} onClick={logout}>{isLogged ? 'Deslogar' : 'Cadastrar'}</LinkRouter>
       </NavLink>
     </NavBar>
   );

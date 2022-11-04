@@ -79,18 +79,16 @@ const SignUp = () => {
             const cookies = new Cookies();
             if (response.is_active) {
               cookies.set(
-                "userData",
+                "token",
                 {
-                  userId,
-                  userToken,
-                  email,
+                  token: userToken,
                 },
                 {
                   path: "/",
                 }
               );
             }
-            window.location.href = "/logged";
+            window.location.href = "/";
           });
       } catch (error) {
         alert(error);

@@ -49,19 +49,16 @@ const LogIn = () => {
           const cookies = new Cookies();
           cookies.remove("userData");
           cookies.set(
-            "userData",
+            "token",
             {
               token: response.token,
-              id: response.id,
-              email: response.email,
-              isAdmin: response.is_admin,
             },
             {
               path: "/",
             }
           );
           alert("logou");
-          window.location.href = "/logged";
+          window.location.href = "/";
         } else {
           alert("Senha ou Email incorreto(s)");
         }
