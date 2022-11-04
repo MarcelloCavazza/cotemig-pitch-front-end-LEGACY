@@ -5,3 +5,4 @@ export const apiClient = "/client";
 export const apiLawyer = "/lawyer";
 export const apiAdmin = "/admin";
 export const apiAuth = "/auth";
+export const apiEmail = "/email";
