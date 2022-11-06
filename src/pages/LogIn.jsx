@@ -57,7 +57,6 @@ const LogIn = () => {
               path: "/",
             }
           );
-          alert("logou");
           window.location.href = "/";
         } else {
           alert("Senha ou Email incorreto(s)");
