@@ -40,7 +40,7 @@ const ChangeInfo = () => {
       <FormContainer
         className='neumorph'
         method={header.method}>
-          <Title size={30} color={colors.logoGreenOne}>
+          <Title size={2} color={colors.logoGreenOne}>
             {header.title}
           </Title>
           <div className="label">
