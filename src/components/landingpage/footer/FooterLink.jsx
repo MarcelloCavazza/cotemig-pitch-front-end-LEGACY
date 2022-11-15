@@ -16,8 +16,9 @@ const Link = styled.div`
 
   & a {
     border-radius: 4px;
+    display: flex;
     color: white;
-    padding: .8rem;
+    padding: .6rem;
     background-color: ${colors.footerButton};
   }
 `
