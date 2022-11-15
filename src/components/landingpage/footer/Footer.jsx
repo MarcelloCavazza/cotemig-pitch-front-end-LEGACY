@@ -52,11 +52,11 @@ const Footer = () => {
           <section className="three">
             <Title align='left' size={2}>Contato</Title>
             <div>
-              <MdOutlineMail color="white"/>
+              <span><MdOutlineMail color="white"/></span>
               <Text size={1}>suporte.brasil@ctt.com</Text>
             </div>
             <div>
-              <MdPhone color='white' />
+              <span><MdPhone color='white' /></span>
               <Text size={1}>+55 (31) 9 9711-3886</Text>
             </div>
           </section>
@@ -93,6 +93,14 @@ const MainFooter = styled.footer`
     & .three {
       flex-grow: 1;
       flex-basis: 50%;
+
+      & div {
+        display: flex;
+
+        & span {
+          margin: .4rem;
+        }
+      }
     }
 
     & span {
