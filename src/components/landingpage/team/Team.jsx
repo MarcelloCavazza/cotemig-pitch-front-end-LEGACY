@@ -48,7 +48,7 @@ const Team = ({id}) => {
       <Title size={3}>Conheça o time</Title>
       <div className="team-container">
         {
-          team.map(member => <Member {...member} />)
+          team.map(member => <Member key={member.name} {...member} />)
         }
       </div>
     </Section>

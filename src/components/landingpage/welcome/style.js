@@ -25,19 +25,19 @@ export const Section = styled.section`
   }
 
   /* Polygon */
-  /* &:before {
+  &:before {
     content: '';
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    animation-name: ${opacity};
+    /* animation-name: ${opacity};
     animation-duration: 3s;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out; */
     background-color: ${colors.logoGreenOne};
     clip-path: var(--polygon);
     z-index: -1;
-  } */
+  }
   /* EndPolygon */
 
   @media only screen and (max-width: 1024px) {

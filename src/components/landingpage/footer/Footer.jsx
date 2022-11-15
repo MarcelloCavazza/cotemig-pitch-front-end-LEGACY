@@ -57,7 +57,7 @@ const Footer = () => {
             </div>
             <div>
               <span><MdPhone color='white' /></span>
-              <Text size={1}>+55 (31) 9 9711-3886</Text>
+              <Text size={1}>+55 (31) 99711-3886</Text>
             </div>
           </section>
         </div>
