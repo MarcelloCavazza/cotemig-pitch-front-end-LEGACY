@@ -99,6 +99,9 @@ const MainFooter = styled.footer`
 
         & span {
           margin: .4rem;
+          display: flex;
+          align-items: center;
+
         }
       }
     }

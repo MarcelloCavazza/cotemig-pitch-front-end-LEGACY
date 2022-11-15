@@ -5,13 +5,10 @@ const Text = styled.span`
   font-weight: 200;
   letter-spacing: .5px;
   text-align: justify;
+  line-height: 1.7rem;
   width: ${props => `${props.width}%` || '100%'};
   font-size: ${props => props.size ? `${props.size}rem` : '1.3rem'};
   display: block;
-
-  @media only screen and (max-width:1024px) {
-    width: 100%;
-  }
 `
 
 export default Text

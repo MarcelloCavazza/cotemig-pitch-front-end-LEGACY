@@ -53,7 +53,7 @@ const Header = ({ className }) => {
       <Toggle>
         <div className='bg' ref={menuRef}>
           <ul>
-            <li primary>
+            <li>
               <LinkRouter onClick={handleMenuOnClick} to="/">Home</LinkRouter>
             </li>
             <li>
@@ -68,10 +68,10 @@ const Header = ({ className }) => {
             <li>
               <Scroll onClick={handleMenuOnClick} to="contact" {...scroll}>Contatos</Scroll>
             </li>
-            <li login>
+            <li>
               <LinkRouter to={isLogged ? '/chatroom' : '/login'}>{isLogged ? 'Chats' : 'Entrar'}</LinkRouter>
             </li>
-            <li signup>
+            <li>
               <LinkRouter to={isLogged ? '/' : '/signup'} onClick={logout}>{isLogged ? 'Deslogar' : 'Cadastrar'}</LinkRouter>
             </li>
           </ul>
