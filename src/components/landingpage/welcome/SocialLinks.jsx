@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import {SocialLinksNav} from './style.js'
 
-const SocialLinks = ({className}) => {
+const SocialLinks = () => {
   return (
-    <Nav className={className}>
+    <SocialLinksNav className='nav'>
       <li>
         <Link to="/">Facebook</Link>
       </li>
@@ -14,29 +14,8 @@ const SocialLinks = ({className}) => {
       <li>
         <Link to="/">Instagram</Link>
       </li>
-    </Nav>
+    </SocialLinksNav>
   );
 };
-
-const Nav = styled.ul`
-  grid-area: links;
-  width: 20rem;
-  display: flex;
-  justify-content: space-between;
-
-  & li {
-    list-style: none;
-  }
-
-  & li a {
-    color: #999;
-    text-decoration: none;
-    font-size: 0.9em;
-  }
-
-  & li a:hover {
-    color: #f2f2f2;
-  }
-`;
 
 export default SocialLinks;
