@@ -50,13 +50,15 @@ export const Section = styled.section`
     & .section-container {
       align-items: center;
     }
+
+    & div span {
+      width: 100%;
+    }
   }
 
 `;
 
 export const HelloTextContent = styled.div`
-  /* width: 100%;
-  height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,6 +72,10 @@ export const HelloTextContent = styled.div`
 
   & .texts,
   & h2 {
+    margin-bottom: 1.3rem;
+  }
+
+  & .texts span:nth-child(1){
     margin-bottom: 1rem;
   }
 
@@ -80,9 +86,28 @@ export const HelloTextContent = styled.div`
     border-radius: 0.5rem;
   }
 
+  & .button-container {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+
   @media only screen and (max-width: 1024px) {
     & {
       align-items: center;
+    }
+
+    & h2 {
+      text-align: center;
+    }
+  }
+
+  @media only screen and (max-width: 530px) {
+    & .button-container > :nth-child(1) {
+      margin-bottom: 1rem;
     }
   }
 `;

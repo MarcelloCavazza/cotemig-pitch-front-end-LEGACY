@@ -13,7 +13,7 @@ const Card = ({color, icon, title, price, positive, negative}) => {
       </div>
       <div className="card-info">
         <Title size={1.4}>{title}</Title>
-        <Text size={2}>R$ <span>{price}0</span></Text>
+        <Text size={2}>R$ <span>{price.toFixed(2)}</span></Text>
         <div className="card-specs">
           {
           positive || positive.length ?
