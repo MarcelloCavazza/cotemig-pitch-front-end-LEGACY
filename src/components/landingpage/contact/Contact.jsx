@@ -36,7 +36,7 @@ const Contact = ({ id }) => {
       </div>
       <hr />
       <div className="contact-container">
-        <ContactLabel value='suporteconsultoriatechthemis@gmail.com' icon={<AiOutlineMail />}/>
+        <ContactLabel value='suporte.brasil@ctt.com' icon={<AiOutlineMail />}/>
         <ContactLabel value='(31) 3259-0984' icon={<AiOutlinePhone />}/>
       </div>
       <Button button type='submit' onClick={sendEmail}>Enviar</Button>

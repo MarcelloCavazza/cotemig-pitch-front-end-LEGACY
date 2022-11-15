@@ -3,12 +3,11 @@ import styled from 'styled-components'
 import Card from './Card'
 
 const Cards = ({plans}) => {
-  
-  
 
   return (
     <CardContainer>
       {
+        plans &&
         plans.map((plan, index) =>
           <Card 
             key={index}

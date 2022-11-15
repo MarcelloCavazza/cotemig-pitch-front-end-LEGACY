@@ -1,8 +1,8 @@
 import { Link as LinkRouter } from "react-router-dom";
 import { Link as Scroll } from 'react-scroll'
-import styled from "styled-components";
-import colors from "../../../global-styles/colors";
+import {NavBar, NavLink} from './style.js'
 import {useState, useEffect} from 'react'
+import MenuToggle from "./MenuToggle.jsx";
 import Cookies from "universal-cookie";
 
 import "../../../global-styles/globalCss.css";
@@ -19,8 +19,6 @@ const Header = ({ className }) => {
     }
   }, [])
   
-
-
   const scroll = {
     spy: true,
     smooth: true
@@ -32,76 +30,35 @@ const Header = ({ className }) => {
   }
 
   return (
-    <NavBar className={className}>
-      <NavLink primary>
-        <LinkRouter to="/">Home</LinkRouter>
-      </NavLink>
-      <NavLink>
-        <Scroll to="about" {...scroll}>Sobre Nós</Scroll>
-      </NavLink>
-      <NavLink>
-        <Scroll to="plans" {...scroll}>Planos</Scroll>
-      </NavLink>
-      <NavLink>
-        <Scroll to="team" {...scroll}>Equipe</Scroll>
-      </NavLink>
-      <NavLink>
-        <Scroll to="contact" {...scroll}>Contatos</Scroll>
-      </NavLink>
-      <NavLink login>
-        <LinkRouter to={isLogged ? '/chatroom':'/login'}>{isLogged ? 'Chats' : 'Entrar'}</LinkRouter>
-      </NavLink>
-      <NavLink signup>
-        <LinkRouter to={isLogged ? '/' : '/signup'} onClick={logout}>{isLogged ? 'Deslogar' : 'Cadastrar'}</LinkRouter>
-      </NavLink>
-    </NavBar>
+    <>
+      <MenuToggle />
+      <NavBar className={className}>
+        <ul>
+          <NavLink primary>
+            <LinkRouter to="/">Home</LinkRouter>
+          </NavLink>
+          <NavLink>
+            <Scroll to="about" {...scroll}>Sobre Nós</Scroll>
+          </NavLink>
+          <NavLink>
+            <Scroll to="plans" {...scroll}>Planos</Scroll>
+          </NavLink>
+          <NavLink>
+            <Scroll to="team" {...scroll}>Equipe</Scroll>
+          </NavLink>
+          <NavLink>
+            <Scroll to="contact" {...scroll}>Contatos</Scroll>
+          </NavLink>
+          <NavLink login>
+            <LinkRouter to={isLogged ? '/chatroom':'/login'}>{isLogged ? 'Chats' : 'Entrar'}</LinkRouter>
+          </NavLink>
+          <NavLink signup>
+            <LinkRouter to={isLogged ? '/' : '/signup'} onClick={logout}>{isLogged ? 'Deslogar' : 'Cadastrar'}</LinkRouter>
+          </NavLink>
+        </ul>
+      </NavBar>
+    </>
   );
 };
-
-const NavLink = styled.li`
-  list-style: none;
-  margin: 0 .5rem;
-  border-radius: .5rem;
-  border: 2px solid ${props => (props.login || props.signup) ? colors.logoGreenOne : 'transparent'};
-  background-color: ${props => props.signup ? colors.logoGreenOne : 'transparent'};
-  
-  & a {
-    color: ${(props) =>
-      props.primary 
-        ? colors.logoGreenOne 
-        : colors.webLinks
-    };
-    text-decoration: none;
-    padding: ${props => (props.login || props.signup) ? '5px 10px' : '5px 2px'};
-    font-size: 1em;
-    text-transform: uppercase;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &:active{
-    outline: 3px solid ${
-      props => 
-      (props.login || props.signup) 
-      ? `${colors.logoGreenTwo}` 
-      : 'transparent'};
-  }
-
-  & a:hover {
-    color: ${props => props.signup ? 'black' : ''};
-    text-decoration: underline;
-    cursor: pointer;
-  }
-`;
-
-const NavBar = styled.ul`
-  grid-area: header;
-  display: flex;
-  justify-content: left;
-  border-left: 5px solid ${colors.logoGreenOne};
-  padding-left: .5rem;
-`;
 
 export default Header;

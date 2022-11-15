@@ -1,24 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Title from '../../texts/Title'
-import anime from 'animejs'
-import { useEffect } from 'react';
 
 const Member = ({img, name, desc, color}) => {
-
-  useEffect(() => {
-    anime({
-      targets: `#member-animator`,
-      scale: [.7, 1],
-      opacity: [0, 1],
-      duration: 750,
-      easing: 'easeInQuad',
-      delay: anime.stagger(50)
-    })
-  })
-
   return (
-    <Container id='member-animator' color={color}>
+    <Container color={color}>
       <img src={img} />
       <Title className='title' size={1.3}>{name}</Title>
       <span className='desc'>{desc}</span>
@@ -41,6 +27,7 @@ const Container = styled.div`
   place-items: center;
   grid-template-rows: 10fr 1fr 5fr;
   backdrop-filter: blur(10px);
+  margin: 1rem;
 
   & .title {
     place-content: center;

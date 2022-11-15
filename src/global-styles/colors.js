@@ -2,7 +2,8 @@ const blacks = {
   absoluteDark: "#000000",
   backgroundDark: "#1a1c1d",
   disabledInput: "#555555",
-  footerDark: "#181717",
+  footerDark: "#101112",
+  footerButton: "#090A0A",
   contactForm: '#202324',
 };
 

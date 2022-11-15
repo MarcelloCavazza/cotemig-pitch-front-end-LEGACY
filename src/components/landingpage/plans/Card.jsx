@@ -3,21 +3,8 @@ import styled from 'styled-components'
 import Title from '../../texts/Title'
 import Text from '../Text'
 import {ImCross, ImCheckmark} from 'react-icons/im'
-import { useEffect } from 'react'
-import anime from 'animejs'
 
 const Card = ({color, icon, title, price, positive, negative}) => {
-
-  useEffect(() => {
-    anime({
-      targets: `#card-animator`,
-      scale: [.7, 1],
-      opacity: [0, 1],
-      duration: 750,
-      easing: 'easeInOutQuad',
-      delay: anime.stagger(50)
-    })
-  })
 
   return (
     <CardStyle id='card-animator' color={color}>
@@ -28,16 +15,20 @@ const Card = ({color, icon, title, price, positive, negative}) => {
         <Title size={1.4}>{title}</Title>
         <Text size={2}>R$ <span>{price}0</span></Text>
         <div className="card-specs">
-          {positive.map(pos => 
+          {
+          positive || positive.length ?
+          positive.map(pos => 
           <div key={pos} className="card-info-tile">
             <Text size={1}><ImCheckmark /> {pos}</Text>
           </div>
-          )}
-          {negative.map(neg => 
+          ) : null}
+          {
+          negative || negative.length ?
+          negative.map(neg => 
           <div key={neg} className="card-info-tile">
             <Text size={1}><ImCross /> {neg}</Text>
           </div>
-          )}
+          ) : null}
         </div>
       </div>
       <div className="card-button">
@@ -54,6 +45,7 @@ const CardStyle = styled.div`
   justify-content: space-evenly;
   aspect-ratio: 3/4;
   width: 20rem;
+  margin: 1rem;
   padding: 1.3rem 0;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   border-radius: 10px;

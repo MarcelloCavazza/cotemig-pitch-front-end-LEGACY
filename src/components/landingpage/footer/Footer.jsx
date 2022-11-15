@@ -1,208 +1,129 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link as Scroll } from 'react-scroll'
+import {MdOutlineMail, MdPhone} from 'react-icons/md'
 import styled from "styled-components";
+import Text from "../Text";
+import Title from "../../texts/Title";
 import colors from "../../../global-styles/colors";
+import FooterLink from './FooterLink.jsx'
+import {FaGithubSquare, FaLinkedin, FaInstagramSquare, FaFacebookSquare} from 'react-icons/fa'
+
+const scroll = {
+  spy: true,
+  smooth: true
+}
 
 const Footer = () => {
   return (
     <>
-      <FooterStyle>
-        <div className="sec sobre">
-          <h2>Sobre</h2>
-          <p>
-            Você está cansado de procurar e procurar vários advogados na
-            internet, ou pedir indicações para amigos, mas nunca com a certeza
-            de que ele é realmente confiável? Então eu te apresento a CTT, uma
-            empresa especializada em agilizar e facilitar o seu contato com
-            advogados de confiança.
-          </p>
-          <ul className="icn">
-            <li>
-              <Link to="/">
-                <i className="fab fa-facebook-f"></i>
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                <i className="fab fa-instagram"></i>
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                <i className="fab fa-linkedin-in"></i>
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                <i className="fab fa-github"></i>
-              </Link>
-            </li>
-          </ul>
+      <MainFooter>
+        <div className="footer-section">
+          <section className="one">
+            <Title align='left' size={2}>Sobre</Title>
+            <Text size={1}>É complicado procurar advogados na internet, mas você já passou por problemas para achar um, que seja confiável e que faça um bom trabalho? Demorou bastante para resolver aquele B.O?</Text>
+            <Text size={1}>Pois bem, nós pensamos nesse problema e dedicamos a criar uma solução para ele! A Consultoria Tech Themis é uma empresa especializada em facilitar o seu contato com advogados de confiança. Oferecemos agiligade com os processos burocrativos, flexibilidade na hora de escolher o advogado perfeito e um atendimento 24/7. Venha conhecer a gente!</Text>
+            <div className="socials">
+              <FooterLink href='/' img={<FaFacebookSquare size={30} />} />
+              <FooterLink href='/' img={<FaLinkedin size={30} />} />
+              <FooterLink href='/' img={<FaInstagramSquare size={30} />} />
+              <FooterLink href='https://github.com/MarcelloCavazza/cotemig-pitch-front-end.github.io' img={<FaGithubSquare size={30} />} />
+            </div>
+          </section>
+          
+          <section className="two">
+            <Title align='left' size={2}>Links Rápidos</Title>
+            <Text size={1}>
+              <Scroll to='welcome' {...scroll}>Home</Scroll>
+            </Text>
+            <Text size={1}>
+              <Scroll to='about' {...scroll}>Sobre Nós</Scroll>
+            </Text>
+            <Text size={1}>
+              <Scroll to='plans' {...scroll}>Planos</Scroll>
+            </Text>
+            <Text size={1}>
+              <Scroll to='team' {...scroll}>Equipe</Scroll>
+            </Text>
+            <Text size={1}>
+              <Scroll to='contact' {...scroll}>Contato</Scroll>
+            </Text>
+          </section>
+          
+          <section className="three">
+            <Title align='left' size={2}>Contato</Title>
+            <div>
+              <MdOutlineMail color="white"/>
+              <Text size={1}>suporte.brasil@ctt.com</Text>
+            </div>
+            <div>
+              <MdPhone color='white' />
+              <Text size={1}>+55 (31) 9 9711-3886</Text>
+            </div>
+          </section>
         </div>
-        <div className="sec quick">
-          <h2>Links Rápidos</h2>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">Sobre</Link>
-            </li>
-            <li>
-              <Link to="/plans">Planos</Link>
-            </li>
-            <li>
-              <Link to="/team">Equipe</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contatos</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="sec lig">
-          <h2>Contatos</h2>
-          <ul className="tel">
-            <li>
-              <span>
-                <i className="fas fa-envelope-square"></i>
-              </span>
-              <p>
-                <a href="">suporteconsultoriatechthemis@gmail.com</a>
-              </p>
-            </li>
-            <li>
-              <span>
-                <i className="fas fa-phone-alt"></i>
-              </span>
-              <p>
-                <a href="">+55 (31) 99711-3886</a>
-              </p>
-            </li>
-          </ul>
-        </div>
-      </FooterStyle>
-      <Copyright>
-        <p>TechThemis © 2021 - 2021</p>
-      </Copyright>
+        <section className="copyright">
+          <Text size={1}>Copyright &copy; Consultoria Tech Themis 2022</Text>
+        </section>
+      </MainFooter>
     </>
   );
 };
 
-const FooterStyle = styled.footer`
-  position: relative;
-  height: auto;
+const MainFooter = styled.footer`
   width: 100%;
-  padding: 50px 100px;
+  padding: 2rem;
   background-color: ${colors.footerDark};
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-gap: 5vw;
-  opacity: 1;
-
-  & .sec {
-    min-width: 10vw;
-  }
-
-  & h2 {
-    position: relative;
-    color: white;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-
-  & p,
-  & .lig .tel li span {
-    color: ${colors.webLinks};
-    opacity: 0.7;
-  }
-
-  & .icn {
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  
+  & .footer-section {
+    gap: 3rem;
     display: flex;
+
+    & .one {
+      flex-grow: 1;
+      flex-basis: 100%;
+    }
+
+    & .two {
+      flex-grow: 1;
+      flex-basis: 50%;
+    }
+
+    & .three {
+      flex-grow: 1;
+      flex-basis: 50%;
+    }
+
+    & span {
+      margin-bottom: 1rem;
+      & a:hover {
+      text-decoration: underline;
+      cursor: pointer;
+      }
+    }
+
+    & .socials {
+      display: flex;
+    }
   }
 
-  & .icn li {
-    list-style: none;
-  }
 
-  & .icn li a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-color: ${colors.backgroundDark};
+  & .copyright {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 10px;
-    text-decoration: none;
-    border-radius: 4px;
+    padding-top: 2rem;
+    & span {
+      text-align: center;
+    }
   }
 
-  & .icn li a:hover {
-    background-color: ${colors.logoGreenOne};
-  }
-
-  & .icn li a .fab {
-    color: white;
-    font-size: 20px;
-  }
-
-  & .quick {
-    position: relative;
-    width: 25%;
-  }
-
-  & .quick ul li {
-    list-style: none;
-  }
-
-  & .quick ul li a {
-    color: ${colors.webLinks};
-    opacity: 0.7;
-    text-decoration: none;
-    margin-bottom: 10px;
-    display: inline-block;
-  }
-
-  & .quick ul li a:hover,
-  & .lig .tel li a:hover {
-    opacity: 0.4;
-  }
-
-  & .lig {
-    width: calc(35% - 60px);
-    margin-right: 0 !important;
-  }
-
-  & .lig .tel {
-    position: relative;
-  }
-
-  & .lig .tel li {
-    margin-bottom: 16px;
-    display: flex;
-  }
-
-  & .lig .tel li span:nth-child(1) {
-    color: white;
-    opacity: 1;
-    font-size: 20px;
-    margin-right: 10px;
-  }
-
-  & .lig .tel li a {
-    color: ${colors.webLinks};
-    opacity: 0.7;
-    text-decoration: none;
+  @media only screen and (max-width: 1024px) {
+    & .footer-section {
+      flex-wrap: wrap;
+    }
   }
 `;
-
-const Copyright = styled.div`
-  width: 100%;
-  background-color: ${colors.footerDark};
-  text-align: center;
-  padding: 8px 100px;
-  color: ${colors.webLinks};
-`;
-
 export default Footer;

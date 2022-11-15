@@ -5,7 +5,7 @@ const Title = styled.h1`
   font-weight: bold;
   color: ${(props) => (props.color ? props.color : colors.absoluteLight)};
   font-size: ${(props) => (props.size ? props.size : 1)}rem;
-  text-align: center;
+  text-align: ${props => props.align ? props.align : 'center'};
   margin-bottom: 1rem;
 `;
 
