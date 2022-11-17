@@ -9,19 +9,22 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "universal-cookie";
 import { AuthAPI } from "../data/api/hooks/services/AuthService";
-import Nothing from "../components/containers/Nothing";
+import GridContainer from "../components/containers/GridContainer";
+import Redirect from "../components/links/Redirect";
 
-const LogIn = () => {
+const Login = () => {
   const [values, setValues] = useState({
     userEmail: "",
     userPassword: "",
   });
 
   const header = {
-    method: "GET",
-    title: "Log In",
-    link: "/signup",
-    labelTitle: "Não tem uma conta? Cadastre aqui.",
+    formMethod: "GET",
+    formTitle: "Entrar",
+    signupLink: "/signup",
+    signupTitle: "Não tem uma conta? Cadastre aqui.",
+    changeLink: '/change-password',
+    changeTitle: 'Esqueceu a senha?',
     buttonEnter: "Entrar",
     buttonBack: "Voltar",
   };
@@ -30,7 +33,7 @@ const LogIn = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const login = async (e) => {
+  const handleLoginAction = async (e) => {
     e.preventDefault();
     let emailValue = document.querySelector("#userEmail").value;
     let passwordValue = document.querySelector("#userPassword").value;
@@ -63,27 +66,23 @@ const LogIn = () => {
         }
       })
       .catch((error) => {
-        alert("Conta nao existe");
+        alert("Conta não existe.", error);
       });
   };
 
   return (
-    <>
-      <Nothing />
+    <GridContainer center>
       <FormContainer
-        className="neumorph"
-        method={header.method}
-        onSubmit={login}
+        method={header.formMethod}
+        onSubmit={handleLoginAction}
       >
         <Title size={2} color={colors.logoGreenOne}>
-          {header.title}
+          {header.formTitle}
         </Title>
-        <div className="href">
-          <Link to={header.link}>{header.labelTitle}</Link>
-        </div>
+        <Redirect left link={header.signupLink}>{header.signupTitle}</Redirect>
         <InputContainer>
           <Input
-            type="text"
+            type="email"
             name="email"
             id="userEmail"
             onChange={onChange}
@@ -101,15 +100,17 @@ const LogIn = () => {
             Senha
           </Input>
         </InputContainer>
-        <ButtonContainer fill>
+        <span className="obligatory">Todos os campos são obrigatórios *</span>
+        <Redirect color='lightgray' center link={header.changeLink}>{header.changeTitle}</Redirect>
+        <ButtonContainer>
           <FormButton>
             <Link to="/">{header.buttonBack}</Link>
           </FormButton>
           <FormButton primary>{header.buttonEnter}</FormButton>
         </ButtonContainer>
       </FormContainer>
-    </>
+    </GridContainer>
   );
 };
 
-export default LogIn;
+export default Login;

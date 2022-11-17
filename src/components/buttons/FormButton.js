@@ -3,8 +3,8 @@ import colors from "../../global-styles/colors";
 
 const FormButton = styled.button`
   font-family: inherit;
-  padding: 15px 30px;
-  font-size: 14pt;
+  padding: .9rem 1.7rem;
+  font-size: 1rem;
   font-weight: bold;
   border: 2px solid ${colors.logoGreenOne};
   border-radius: 5px;

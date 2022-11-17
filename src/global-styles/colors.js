@@ -2,6 +2,7 @@ const blacks = {
   absoluteDark: "#000000",
   backgroundDark: "#1a1c1d",
   disabledInput: "#555555",
+  disableInputFocus: '#828282',
   footerDark: "#101112",
   footerButton: "#090A0A",
   contactForm: '#202324',
@@ -14,7 +15,7 @@ const whites = {
 };
 
 const reds = {
-  invalidRed: "#EB2926",
+  red: "#FF3A27",
 };
 
 const oranges = {};

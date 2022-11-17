@@ -1,11 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MainStyle, { InputStyle } from "./MainStyle";
-import Label from "./Label";
+import { InputStyle } from "./style";
 
 const Input = ({
   children,
-  placeholder,
   type,
   id,
   value,
@@ -15,8 +13,7 @@ const Input = ({
 }) => {
   return (
     <>
-      <MainStyle />
-      <InputStyle width={400}>
+      <InputStyle>
         <input
           name={name}
           className="styled input"
@@ -25,11 +22,8 @@ const Input = ({
           id={id}
           value={value}
           required={isRequired}
-          placeholder={placeholder}
+          placeholder={children}
         />
-        <Label id={id} isRequired={isRequired}>
-          {children}
-        </Label>
       </InputStyle>
     </>
   );

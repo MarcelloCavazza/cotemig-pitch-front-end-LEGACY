@@ -2,30 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../../global-styles/colors";
 import PropTypes from "prop-types";
-import MainStyle, { InputStyle } from "./MainStyle";
-import Label from "./Label";
+import { InputStyle } from "./style";
 
 export const Combobox = ({ id, name, children, title, onChange }) => {
   return (
     <>
-      <MainStyle />
       <InputStyle width={400}>
         <select
-          placeholder="teste"
+          placeholder={children}
           onChange={onChange}
           className="styled select"
           name={name}
           id={id}
         >
-          <Option disabled selected value="">
-            Selecione uma opção
-          </Option>
           {children}
         </select>
         <span className="arrow"></span>
-        <Label isRequired className="label" htmlFor={id}>
-          {title}
-        </Label>
       </InputStyle>
     </>
   );
