@@ -10,7 +10,7 @@ import { useState } from "react";
 import Cookies from "universal-cookie";
 import { AuthAPI } from "../data/api/hooks/services/AuthService";
 import GridContainer from "../components/containers/GridContainer";
-import Redirect from "../components/links/Redirect";
+import Redirect from "../components/templates/Redirect";
 
 const Login = () => {
   const [values, setValues] = useState({

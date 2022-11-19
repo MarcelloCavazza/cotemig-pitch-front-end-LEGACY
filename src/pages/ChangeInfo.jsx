@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import Nothing from '../components/containers/Nothing';
 import Input from '../components/inputs/Input';
 import InputContainer from '../components/containers/InputContainer';
 import FormButton, {ButtonContainer} from '../components/buttons/FormButton'
 import FormContainer from '../components/containers/FormContainer';
 import Title from '../components/texts/Title';
-import { Combobox, Option } from '../components/inputs/Combobox'
+import Dropdown from '../components/inputs/Dropdown'
+import DropdownItem from '../components/inputs/DropdownItem'
 import colors from '../global-styles/colors';
 
 
@@ -36,7 +36,6 @@ const ChangeInfo = () => {
 
   return (
     <>
-      <Nothing />
       <FormContainer
         className='neumorph'
         method={header.method}>
@@ -92,11 +91,11 @@ const ChangeInfo = () => {
             >
               Data de nascimento
             </Input>
-            <Combobox title="Sexo" name="gender" id="userGender">
-              <Option value="masculino">Masculino</Option>
-              <Option value="feminino">Feminino</Option>
-              <Option value="outro">Outro</Option>
-            </Combobox>
+            <Dropdown title="Sexo" name="gender" id="userGender">
+              <DropdownItem value="masculino">Masculino</DropdownItem>
+              <DropdownItem value="feminino">Feminino</DropdownItem>
+              <DropdownItem value="outro">Outro</DropdownItem>
+            </Dropdown>
           </InputContainer>
           <ButtonContainer>
             <FormButton>
@@ -107,7 +106,6 @@ const ChangeInfo = () => {
             </FormButton>
           </ButtonContainer>
       </FormContainer>
-      <Nothing />
     </>
   )
 }

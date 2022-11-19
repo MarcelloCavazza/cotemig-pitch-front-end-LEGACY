@@ -1,40 +1,27 @@
 import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
 import colors from "../../global-styles/colors";
+import styled from "styled-components";
+import PropTypes from "prop-types";
+import { IoIosArrowDown } from 'react-icons/io'
 
-const Input = ({
-  children,
-  type,
-  id,
-  value,
-  onChange,
-  isRequired,
-  name,
-}) => {
+const Dropdown = ({children, name, id}) => {
   return (
     <Box>
-      <input
-        name={name}
-        onChange={onChange}
-        type={type}
-        id={id}
-        value={value}
-        required={isRequired}
-        placeholder={children}
-      />
+      <select id={id} name={name}>
+        {children}
+      </select>
     </Box>
   );
-};
-
+}
 
 const Box = styled.div`
   width: 100%;
   height: 3rem;
+  position: relative;
   border: 2px solid ${colors.disabledInput};
   border-radius: 0.3rem;
 
-  & input {
+  & select {
     width: 100%;
     height: 100%;
     outline: none;
@@ -50,18 +37,19 @@ const Box = styled.div`
       border-color: ${colors.disableInputFocus};
     }
   }
-`;
+`
 
-Input.propTypes = {
-  children: PropTypes.any.isRequired,
-  type: PropTypes.string,
+Dropdown.propTypes = {
   id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
+  title: PropTypes.string.isRequired,
+  children: PropTypes.array.isRequired,
 };
 
-Input.defaultProps = {
-  type: "text",
+Dropdown.defaultProps = {
   isRequired: false,
+  title: "{{title}}",
 };
 
-export default Input;
+export default Dropdown
