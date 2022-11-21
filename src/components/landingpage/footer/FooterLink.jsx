@@ -12,7 +12,6 @@ const FooterLink = ({img, href}) => {
 
 const Link = styled.div`
   display: flex;
-  margin-right: 1rem;
 
   & a {
     border-radius: 4px;
@@ -20,6 +19,11 @@ const Link = styled.div`
     color: white;
     padding: .6rem;
     background-color: ${colors.footerButton};
+    transition: background-color .2s;
+  }
+
+  & a:hover {
+    background-color: ${colors.logoGreenOne};
   }
 `
 

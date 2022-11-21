@@ -23,10 +23,8 @@ const FormButton = styled.button`
 `;
 
 export const ButtonContainer = styled.div`
-  display: block;
-  width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  gap: 3rem;
 `;
 
 export default FormButton;

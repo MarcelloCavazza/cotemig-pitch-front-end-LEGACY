@@ -11,6 +11,9 @@ const Input = ({
   onChange,
   isRequired,
   name,
+  autoComplete,
+  minLenght,
+  maxLenght
 }) => {
   return (
     <Box>
@@ -22,6 +25,9 @@ const Input = ({
         value={value}
         required={isRequired}
         placeholder={children}
+        autoComplete={autoComplete}
+        minLength={minLenght}
+        maxLength={maxLenght}
       />
     </Box>
   );

@@ -13,21 +13,15 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { AuthAPI } from "../data/api/hooks/services/AuthService";
 import Cookies from "universal-cookie";
+import { mask } from "remask";
 import { ClientAPI } from "../data/api/hooks/services/ClientService";
 
 const SignUp = () => {
 
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    cpf: "",
-    birthday: "",
-    gender: "",
-    telephone: "",
-    state: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const patterns = [
+    '(99) 99999-9999',
+    '999.999.999-99'
+  ]
 
   const header = {
     formMethod: "POST",
@@ -36,11 +30,6 @@ const SignUp = () => {
     loginTitle: "Não tem uma conta? Cadastre aqui.",
     buttonEnter: "Entrar",
     buttonBack: "Voltar",
-  };
-
-  const onChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-    console.log(values)
   };
 
   const handleCreateAccount = async (e) => {
@@ -109,19 +98,19 @@ const SignUp = () => {
         <Title size={2} color={colors.logoGreenOne}>{header.formTitle}</Title>
         <Redirect left link={header.loginLink}>{header.loginTitle}</Redirect>
         <InputContainer>
-          <Input type="text" name="name" id="userName" onChange={onChange} isRequired>
+          <Input type="text" id="userName" isRequired>
             Nome
           </Input>
-          <Input type="text" name="email" id="userEmail" onChange={onChange}isRequired>
+          <Input type="text" id="userEmail" isRequired>
             Email
           </Input>
-          <Input type="text" name="telephone" id="userTelephone" onChange={onChange} isRequired>
+          <Input type="text" autoComplete='off' maxLength={15} id="userTelephone" isRequired>
             Telefone
           </Input>
-          <Input type="text" name="cpf" id="userCpf" onChange={onChange} isRequired>
+          <Input type="text" autoComplete='off' maxLength={14} id="userCpf" isRequired>
             CPF
           </Input>
-          <Input type="text" name="birthday" id="userBirthday" onChange={onChange}isRequired>
+          <Input type="text" id="userBirthday" isRequired>
             Data de nascimento
           </Input>
           <Dropdown name="gender" id="userGender">
@@ -130,26 +119,19 @@ const SignUp = () => {
             <DropdownItem value="feminino">Feminino</DropdownItem>
             <DropdownItem value="outro">Outro</DropdownItem>
           </Dropdown>
-          <Input name="state" id="userState" onChange={onChange} isRequired>
+          <Input name="state" id="userState"  isRequired>
             Estado
           </Input>
-          <Input
-            type="password" name="password" id="userPassword" onChange={onChange} isRequired
-          >
+          <Input type="password" id="userPassword" isRequired>
             Senha
           </Input>
-          <Input
-            type="password" name="confirmPassword"
-            id="userConfPassword" onChange={onChange} isRequired
-          >
+          <Input type="password" id="userConfPassword" isRequired>
             Confirmar Senha
           </Input>
         </InputContainer>
         <span className="obligatory">Todos os campos são obrigatórios *</span>
         <ButtonContainer>
-          <FormButton>
-            <Link to="/">{header.buttonBack}</Link>
-          </FormButton>
+          <FormButton type='button'><Link to="/">{header.buttonBack}</Link></FormButton>
           <FormButton primary>{header.buttonEnter}</FormButton>
         </ButtonContainer>
       </FormContainer>

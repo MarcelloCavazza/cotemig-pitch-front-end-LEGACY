@@ -6,18 +6,12 @@ import colors from "../global-styles/colors";
 import FormButton, { ButtonContainer } from "../components/buttons/FormButton";
 import InputContainer from "../components/containers/InputContainer";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import Cookies from "universal-cookie";
 import { AuthAPI } from "../data/api/hooks/services/AuthService";
 import GridContainer from "../components/containers/GridContainer";
 import Redirect from "../components/templates/Redirect";
 
 const Login = () => {
-  const [values, setValues] = useState({
-    userEmail: "",
-    userPassword: "",
-  });
-
   const header = {
     formMethod: "GET",
     formTitle: "Entrar",
@@ -27,10 +21,6 @@ const Login = () => {
     changeTitle: 'Esqueceu a senha?',
     buttonEnter: "Entrar",
     buttonBack: "Voltar",
-  };
-
-  const onChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   const handleLoginAction = async (e) => {
@@ -81,29 +71,17 @@ const Login = () => {
         </Title>
         <Redirect left link={header.signupLink}>{header.signupTitle}</Redirect>
         <InputContainer>
-          <Input
-            type="email"
-            name="email"
-            id="userEmail"
-            onChange={onChange}
-            isRequired
-          >
+          <Input type="email" id="userEmail" isRequired>
             Email
           </Input>
-          <Input
-            type="password"
-            name="password"
-            id="userPassword"
-            onChange={onChange}
-            isRequired
-          >
+          <Input type="password" id="userPassword" isRequired>
             Senha
           </Input>
         </InputContainer>
         <span className="obligatory">Todos os campos são obrigatórios *</span>
         <Redirect color='lightgray' center link={header.changeLink}>{header.changeTitle}</Redirect>
         <ButtonContainer>
-          <FormButton>
+          <FormButton type="button">
             <Link to="/">{header.buttonBack}</Link>
           </FormButton>
           <FormButton primary>{header.buttonEnter}</FormButton>

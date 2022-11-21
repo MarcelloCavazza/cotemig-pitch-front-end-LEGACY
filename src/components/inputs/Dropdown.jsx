@@ -2,7 +2,6 @@ import React from "react";
 import colors from "../../global-styles/colors";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { IoIosArrowDown } from 'react-icons/io'
 
 const Dropdown = ({children, name, id}) => {
   return (
@@ -20,7 +19,7 @@ const Box = styled.div`
   position: relative;
   border: 2px solid ${colors.disabledInput};
   border-radius: 0.3rem;
-
+  
   & select {
     width: 100%;
     height: 100%;

@@ -25,6 +25,7 @@
     "react-router-dom": "^6.3.0",
     "react-scroll": "^1.8.8",
     "react-visibility-sensor": "^5.1.1",
+    "remask": "^0.1.0-alpha.5",
     "styled-components": "^5.3.5",
     "universal-cookie": "^4.0.4"
   },

@@ -1,6 +1,6 @@
 const blacks = {
   absoluteDark: "#000000",
-  backgroundDark: "#1a1c1d",
+  backgroundDark: "#1A1C1D",
   disabledInput: "#555555",
   disableInputFocus: '#828282',
   footerDark: "#101112",
