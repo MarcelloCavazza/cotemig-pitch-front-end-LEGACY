@@ -107,6 +107,11 @@ const LogIn = () => {
           </FormButton>
           <FormButton primary>{header.buttonEnter}</FormButton>
         </ButtonContainer>
+        <div className="href">
+          <Link to={"/email-reset-password"}>
+            Esqueceu sua senha? Clique aqui.
+          </Link>
+        </div>
       </FormContainer>
     </>
   );
