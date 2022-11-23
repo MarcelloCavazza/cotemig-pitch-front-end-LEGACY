@@ -5,12 +5,13 @@ import colors from "../../../global-styles/colors";
 import { ContactName } from "../navigation/ContactTexts";
 import ProfileImage from "../ProfileImage";
 
-const ChatHeader = () => {
+const ChatHeader = ({name}) => {
+  console.log(name)
   return (
     <Header>
       <div className="contact-info-container">
         <ProfileImage imageLink={contactImage} width={50} />
-        <ContactName>Braga</ContactName>
+        <ContactName>{name == undefined ? "XXX" : name}</ContactName>
       </div>
     </Header>
   );

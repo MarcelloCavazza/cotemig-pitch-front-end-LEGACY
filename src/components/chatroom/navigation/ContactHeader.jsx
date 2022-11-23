@@ -4,14 +4,14 @@ import styled from "styled-components";
 import colors from "../../../global-styles/colors";
 import ProfileImage from "../ProfileImage";
 
-const ContactHeader = () => {
+const ContactHeader = ({name}) => {
   return (
     <HeaderHead>
       <div className="header-user-info">
         <ProfileImage imageLink={contactImage} width={50} height={50} />
         <div className="header-user-names">
-          <UserName>Braga</UserName>
-          <CheckUserActivity>Online</CheckUserActivity>
+          <UserName>{name == undefined ? "XXX" : name}</UserName>
+          {/* <CheckUserActivity>Online</CheckUserActivity> */}
         </div>
       </div>
     </HeaderHead>
