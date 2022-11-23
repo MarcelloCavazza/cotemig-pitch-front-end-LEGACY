@@ -42,13 +42,40 @@ const SignUp = () => {
   const createAccount = async (e) => {
     e.preventDefault();
 
+    const email = document.querySelector("#userEmail").value;
+    let cpf = document.getElementById("userCpf").value;
+    console.log(cpf);
+    const name = document.querySelector("#userName").value;
+    const userConfPassword = document.querySelector("#userConfPassword").value;
+    const password = document.querySelector("#userPassword").value;
+    const telephone = document.querySelector("#userTelephone").value;
+    const selectInputState = document.getElementById("userState");
+    const state =
+      selectInputState.options[selectInputState.options.selectedIndex].value;
+
+    if (
+      email.length <= 0 ||
+      cpf.length <= 0 ||
+      name.length <= 0 ||
+      password.length <= 0 ||
+      telephone.length <= 0 ||
+      state.length <= 0
+    ) {
+      alert("Todos os campos devem estar preenchidos!");
+      return;
+    }
+    if (userConfPassword != password) {
+      alert("As senhas nao coincidem");
+      return;
+    }
+
     const authApi = AuthAPI();
     try {
       const result = await authApi.post(
         "/create",
         JSON.stringify({
-          email: values.email,
-          password: values.password,
+          email,
+          password,
         })
       );
       const userId = result.data.id;
@@ -57,12 +84,6 @@ const SignUp = () => {
       console.log(userToken);
       const clientApi = ClientAPI(userToken);
       try {
-        const email = document.querySelector("#userEmail").value;
-        const cpf = document.querySelector("#userCpf").value;
-        const name = document.querySelector("#userName").value;
-        const password = document.querySelector("#userPassword").value;
-        const telephone = document.querySelector("#userTelephone").value;
-
         clientApi
           .post(
             "/create",
@@ -142,7 +163,7 @@ const SignUp = () => {
             Telephone
           </Input>
           <Input
-            type="text"
+            type="number"
             name="cpf"
             id="userCpf"
             onChange={onChange}
@@ -151,7 +172,7 @@ const SignUp = () => {
             CPF
           </Input>
           <Input
-            type="text"
+            type="date"
             name="birthday"
             id="userBirthday"
             onChange={onChange}
@@ -163,6 +184,35 @@ const SignUp = () => {
             <Option value="masculino">Masculino</Option>
             <Option value="feminino">Feminino</Option>
             <Option value="outro">Outro</Option>
+          </Combobox>
+          <Combobox title="Estado" name="userState" id="userState">
+            <Option value="AC">AC</Option>
+            <Option value="AL">AL</Option>
+            <Option value="AP">AP</Option>
+            <Option value="AM">AM</Option>
+            <Option value="BA">BA</Option>
+            <Option value="CE">CE</Option>
+            <Option value="DF">DF</Option>
+            <Option value="ES">ES</Option>
+            <Option value="GO">GO</Option>
+            <Option value="MA">MA</Option>
+            <Option value="MT">MT</Option>
+            <Option value="MS">MS</Option>
+            <Option value="MG">MG</Option>
+            <Option value="PA">PA</Option>
+            <Option value="PB">PB</Option>
+            <Option value="PR">PR</Option>
+            <Option value="PE">PE</Option>
+            <Option value="PI">PI</Option>
+            <Option value="RJ">RJ</Option>
+            <Option value="RN">RN</Option>
+            <Option value="RS">RS</Option>
+            <Option value="RO">RO</Option>
+            <Option value="RR">RR</Option>
+            <Option value="SC">SC</Option>
+            <Option value="SP">SP</Option>
+            <Option value="SE">SE</Option>
+            <Option value="TO">TO</Option>
           </Combobox>
           <Input
             type="password"
