@@ -10,7 +10,7 @@ import { useState } from "react";
 import Cookies from "universal-cookie";
 import { AuthAPI } from "../data/api/hooks/services/AuthService";
 import Nothing from "../components/containers/Nothing";
-
+import "./cssgeral.css";
 const LogIn = () => {
   const [values, setValues] = useState({
     userEmail: "",
@@ -73,12 +73,12 @@ const LogIn = () => {
       <FormContainer
         className="neumorph"
         method={header.method}
-        onSubmit={login}
+        onSubmit={(e) => e.preventDefault()}
       >
         <Title size={2} color={colors.logoGreenOne}>
           {header.title}
         </Title>
-        <div className="href">
+        <div className="href textLInk">
           <Link to={header.link}>{header.labelTitle}</Link>
         </div>
         <InputContainer>
@@ -102,12 +102,17 @@ const LogIn = () => {
           </Input>
         </InputContainer>
         <ButtonContainer fill>
-          <FormButton>
-            <Link to="/">{header.buttonBack}</Link>
-          </FormButton>
-          <FormButton primary>{header.buttonEnter}</FormButton>
+          <button
+            className="buttonEnter"
+            onClick={(_) => (window.location.href = "/")}
+          >
+            {header.buttonBack}
+          </button>
+          <button className="buttonEnter" onClick={login}>
+            {header.buttonEnter}
+          </button>
         </ButtonContainer>
-        <div className="href">
+        <div className="href textLInk">
           <Link to={"/email-reset-password"}>
             Esqueceu sua senha? Clique aqui.
           </Link>

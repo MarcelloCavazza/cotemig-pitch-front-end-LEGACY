@@ -12,6 +12,7 @@ import { AuthAPI } from "../data/api/hooks/services/AuthService";
 import Cookies from "universal-cookie";
 import { ClientAPI } from "../data/api/hooks/services/ClientService";
 import Nothing from "../components/containers/Nothing";
+import "./cssgeral.css";
 
 const SignUp = () => {
   const [values, setValues] = useState({
@@ -104,12 +105,12 @@ const SignUp = () => {
       <FormContainer
         className="neumorph"
         method={header.method}
-        onSubmit={createAccount}
+        onSubmit={(e) => e.preventDefault()}
       >
         <Title size={2} color={colors.logoGreenOne}>
           {header.title}
         </Title>
-        <div className="href">
+        <div className="href textLInk">
           <Link to={header.link}>{header.labelTitle}</Link>
         </div>
         <InputContainer>
@@ -182,11 +183,16 @@ const SignUp = () => {
             Confirmar Senha
           </Input>
         </InputContainer>
-        <ButtonContainer>
-          <FormButton>
-            <Link to="/">{header.buttonBack}</Link>
-          </FormButton>
-          <FormButton primary>{header.buttonEnter}</FormButton>
+        <ButtonContainer fill>
+          <button
+            className="buttonEnter"
+            onClick={(_) => (window.location.href = "/")}
+          >
+            {header.buttonBack}
+          </button>
+          <button className="buttonEnter" onClick={createAccount}>
+            {header.buttonEnter}
+          </button>
         </ButtonContainer>
       </FormContainer>
       <Nothing />

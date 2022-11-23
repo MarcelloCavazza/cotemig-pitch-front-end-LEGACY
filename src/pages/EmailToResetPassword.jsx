@@ -7,6 +7,7 @@ import colors from "../global-styles/colors";
 import InputContainer from "../components/containers/InputContainer";
 import Input from "../components/inputs/Input";
 import Title from "../components/texts/Title";
+import { EmailAPI } from "../data/api/hooks/services/EmailService";
 
 const EmailToResetPassword = () => {
   const [values, setValues] = useState({});
@@ -18,22 +19,37 @@ const EmailToResetPassword = () => {
     buttonEnter: "Entrar",
     buttonBack: "Voltar",
   };
+
+  const sendEmail = () => {
+    const emailApi = EmailAPI();
+    emailApi.post(
+      "/resetpassword/send",
+      JSON.stringify({
+        email: document.getElementById("userEmail").value,
+      })
+    );
+  };
   return (
     <>
-      <FormContainer className="neumorph" method={header.method}>
+      <FormContainer className="neumorph" onSubmit={(e) => e.preventDefault()}>
         <Title size={2} color={colors.logoGreenOne}>
           Insira seu email para receber as intruções de reset de senha
         </Title>
         <InputContainer>
-          <Input type="text" name="email" id="userEmail" isRequired>
+          <Input type="email" name="email" id="userEmail" isRequired>
             Email
           </Input>
         </InputContainer>
         <ButtonContainer fill>
-          <FormButton>
-            <Link to="/login">Voltar</Link>
-          </FormButton>
-          <FormButton primary>Enviar</FormButton>
+          <button
+            className="buttonEnter"
+            onClick={(_) => (window.location.href = "/")}
+          >
+            {header.buttonBack}
+          </button>
+          <button className="buttonEnter" onClick={sendEmail}>
+            {header.buttonEnter}
+          </button>
         </ButtonContainer>
       </FormContainer>
     </>
