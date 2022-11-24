@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Message } from "./Message";
 
-const ChatBody = ({messages}) => {
-  return <Container>
+const ChatBody = ({messages, last_element_ref}) => {
+  return <Container ref={last_element_ref}>
     {messages.map((e, i) => <Message key={i} text_message={e.text_message} is_same_user={e.is_same_user}/>)}
   </Container>;
 };

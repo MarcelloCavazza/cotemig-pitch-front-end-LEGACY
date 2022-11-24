@@ -80,9 +80,7 @@ const SignUp = () => {
             if (response.is_active) {
               cookies.set(
                 "token",
-                {
-                  token: userToken,
-                },
+                userToken,
                 {
                   path: "/",
                 }

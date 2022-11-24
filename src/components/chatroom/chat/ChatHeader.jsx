@@ -6,7 +6,7 @@ import { ContactName } from "../navigation/ContactTexts";
 import ProfileImage from "../ProfileImage";
 
 const ChatHeader = ({name}) => {
-  console.log(name)
+  //console.log(name)
   return (
     <Header>
       <div className="contact-info-container">
