@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import colors from '../../../global-styles/colors'
 
 const Section = styled.div`
   width: 100%;
@@ -11,7 +10,8 @@ const Section = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30rem;
+    max-width: 35rem;
+    width: 100%;
     background: linear-gradient(
       45deg, 
       rgba(255, 255, 255, 0.023),
@@ -64,6 +64,23 @@ const Section = styled.div`
     & button {
       margin-top: 0;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, .3);
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    & .contact-container,
+    & hr {
+      display: none;
+    }
+
+    & .message-container button {
+      margin-top: 1rem;
+    }
+  }
+
+  @media olny screen and (max-width: 425px) {
+    & .message-container {
+      width: 90%;
     }
   }
   

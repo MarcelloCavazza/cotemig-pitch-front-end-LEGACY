@@ -1,0 +1,17 @@
+.buttonEnter {
+  background-color: #03989e; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.textLInk {
+  display: flex !important;
+  justify-content: center !important;
+}

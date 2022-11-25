@@ -6,6 +6,7 @@ const FormContainer = styled.form`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  margin: 0px 500px 0px 500px;
   border-radius: 10px;
   padding: 50px 25px;
 
@@ -23,7 +24,7 @@ const FormContainer = styled.form`
     width: 100%;
     display: flex;
     justify-content: center;
-    color: rgba(255,255,255,.7);
+    color: rgba(255, 255, 255, 0.7);
   }
 
   & a {

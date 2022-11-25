@@ -1,11 +1,8 @@
 import styled from "styled-components";
 
 const Section = styled.div`
-  width: 90%;
-  min-height: 70vh;
-  display: grid;
-  place-items: center;
-  grid-template-columns: 8fr 4fr;
+  display: flex;
+  flex-direction: column;
   
   & .cards-container {
     width: 100%;
@@ -13,7 +10,11 @@ const Section = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    &:first-child{
+      margin-bottom: 2vh;
+    }
   }
+  
 `
 
 export default Section;

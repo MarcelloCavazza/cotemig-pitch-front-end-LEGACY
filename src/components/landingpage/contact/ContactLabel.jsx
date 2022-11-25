@@ -10,7 +10,7 @@ const ContactLabel = ({value, icon}) => {
   ) 
 }
 
-const Container = styled.div`
+const Container = styled.span`
   color: white;
   display: flex;
   align-items: center;

@@ -1,24 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Title from '../../texts/Title'
-import anime from 'animejs'
-import { useEffect } from 'react';
 
 const Member = ({img, name, desc, color}) => {
-
-  useEffect(() => {
-    anime({
-      targets: `#member-animator`,
-      scale: [.7, 1],
-      opacity: [0, 1],
-      duration: 750,
-      easing: 'easeInQuad',
-      delay: anime.stagger(50)
-    })
-  })
-
   return (
-    <Container id='member-animator' color={color}>
+    <Container color={color}>
       <img src={img} />
       <Title className='title' size={1.3}>{name}</Title>
       <span className='desc'>{desc}</span>
@@ -31,16 +17,27 @@ const Container = styled.div`
   width: 18rem;
   background: linear-gradient(
     45deg,
-    rgba(255, 255, 255, 0.023),
-    rgba(0, 0, 0, 0.05),
-    rgba(255, 255, 255, 0.023)
+    rgba(255, 255, 255, 0.1),
+    rgba(0, 0, 0, 0.1),
+    rgba(255, 255, 255, 0.07)
   );
+  background-size: 400% 400%;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, .3);
   display: grid;
   place-items: center;
   grid-template-rows: 10fr 1fr 5fr;
   backdrop-filter: blur(10px);
+  margin: 1rem;
+  transition: background .2s ease-in-out;
+
+  &:hover{
+    background-position: 0% 25%;
+    & img {
+      transform: scale(1.03);
+      box-shadow: 10px 10px 25px rgba(0, 0, 0, .5);
+    }
+  }
 
   & .title {
     place-content: center;
@@ -54,7 +51,8 @@ const Container = styled.div`
     aspect-ratio: 1;
     width: 8rem;
     border-radius: 100%;
-    outline: .8rem solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 25px rgba(0, 0, 0, .5);
+    transition: all .2s ease-in-out;
   }
 
   & .desc {

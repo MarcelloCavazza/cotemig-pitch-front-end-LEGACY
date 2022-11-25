@@ -6,16 +6,9 @@ import styled from "styled-components";
 const Layout = () => {
   return (
     <Container>
-      <SOutlet>
-        <Outlet />
-      </SOutlet>
+      <Outlet />
     </Container>
   );
 };
-
-const SOutlet = styled.div`
-  display: grid;
-  place-items: center;
-`;
 
 export default Layout;

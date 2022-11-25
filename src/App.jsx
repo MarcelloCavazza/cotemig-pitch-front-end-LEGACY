@@ -8,6 +8,7 @@ import Logged from "./pages/Logged.jsx";
 import Chatroom from "./pages/Chatroom.jsx";
 import ChangePassword from "./pages/ChangePassword.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import EmailToResetPassword from "./pages/EmailToResetPassword.jsx";
 
 function App() {
   return (
@@ -20,7 +21,11 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="chatroom" element={<Chatroom />} />
           <Route path="change-info" element={<ChangeInfo />} />
-          <Route path='change-password' element={<ChangePassword />} />
+          <Route path="reset-password" element={<ChangePassword />} />
+          <Route
+            path="email-reset-password"
+            element={<EmailToResetPassword />}
+          />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

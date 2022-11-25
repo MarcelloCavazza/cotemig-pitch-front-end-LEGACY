@@ -6,12 +6,9 @@ import marcello from "../../../assets/ctt-team/marcello.jpeg";
 import avila from "../../../assets/ctt-team/avila.png";
 import Section from "./style";
 import Member from "./Member";
-import Title from "../../texts/Title"; 
-import { useInView } from "react-intersection-observer";
+import Title from "../../texts/Title";
 
 const Team = ({id}) => {
-
-  const {ref: myRef, inView: isVisible} = useInView()
 
   const team = [
     {
@@ -47,18 +44,13 @@ const Team = ({id}) => {
   ];
 
   return (
-    <Section id={id} ref={myRef}>
-      {
-        isVisible && 
-        <>
-          <Title size={3}>Conheça o time</Title>
-          <div className="team-container">
-            {
-              team.map(member => <Member {...member} />)
-            }
-          </div>
-        </>
-      }
+    <Section id={id}>
+      <Title size={3}>Conheça o time</Title>
+      <div className="team-container">
+        {
+          team.map(member => <Member key={member.name} {...member} />)
+        }
+      </div>
     </Section>
   );
 };

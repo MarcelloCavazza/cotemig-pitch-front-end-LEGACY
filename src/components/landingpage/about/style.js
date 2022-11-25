@@ -1,11 +1,22 @@
 import styled from "styled-components";
 
-const Container = styled.div`
-  display: grid;
-  place-items: center start;
-  width: 80vw;
-  height: 100vh;
-  grid-template-columns: 1fr 1fr;
+export const Container = styled.div`
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  & img {
+    width: 30rem;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    & img {
+      display: none;
+    }
+  }
 `;
 
-export default Container;
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-flow: wrap column;
+`
