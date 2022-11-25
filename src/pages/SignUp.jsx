@@ -44,7 +44,7 @@ const SignUp = () => {
 
     const email = document.querySelector("#userEmail").value;
     let cpf = document.getElementById("userCpf").value;
-    console.log(cpf);
+
     const name = document.querySelector("#userName").value;
     const userConfPassword = document.querySelector("#userConfPassword").value;
     const password = document.querySelector("#userPassword").value;
@@ -53,17 +53,47 @@ const SignUp = () => {
     const state =
       selectInputState.options[selectInputState.options.selectedIndex].value;
 
-    if (
-      email.length <= 0 ||
-      cpf.length <= 0 ||
-      name.length <= 0 ||
-      password.length <= 0 ||
-      telephone.length <= 0 ||
-      state.length <= 0
-    ) {
-      alert("Todos os campos devem estar preenchidos!");
+    if (state.length <= 0) {
+      alert("Campo estado deve estar corretamente preenchido!");
       return;
     }
+    if (password.length <= 0 && password.length <= 200) {
+      alert("Senha deve estar corretamente preenchida!");
+      return;
+    }
+    if (name.length <= 0 && name.length <= 200) {
+      alert("Nome deve estar corretamente preenchido!");
+      return;
+    }
+    if (telephone.length <= 0 && telephone.length <= 15) {
+      alert("Telefone deve estar corretamente preenchido!");
+      return;
+    }
+    if (cpf.length <= 0) {
+      alert("CPF deve estar corretamente preenchido!");
+      return;
+    }
+    if (email.length <= 0 && email.length <= 150) {
+      alert("Email deve estar corretamente preenchido!");
+      return;
+    }
+
+    if (cpf.length > 14) {
+      alert("CPF maior que o normal!");
+      return;
+    }
+    if (cpf.length < 11) {
+      alert("CPF menor que o normal!");
+      return;
+    }
+    cpf = cpf.replace(".", "");
+    cpf = cpf.replace("-", "");
+
+    if (parseInt(cpf) == NaN) {
+      alert('CPF deve conter somente números e/ou ".", "-"');
+      return;
+    }
+
     if (userConfPassword != password) {
       alert("As senhas nao coincidem");
       return;
