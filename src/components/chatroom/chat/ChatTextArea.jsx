@@ -3,32 +3,32 @@ import { BiSend } from "react-icons/bi";
 import styled from "styled-components";
 import colors from "../../../global-styles/colors";
 
-const ChatTextArea = () => {
-  const [textArea, setTextArea] = useState("");
-
+const ChatTextArea = ({callbackSend, inputRef}) => {
   return (
-    <form action="/" method="post">
-      {" "}
-      {/* Colocar url devida */}
-      <TextArea>
+    <div>
+      <TextArea ref={inputRef} onKeyDown={((e) => {
+        if(e.key == "Enter"){
+          e.preventDefault();
+          callbackSend();
+        }
+      })} >
         <div className="container">
           <textarea
             cols={2}
             maxLength={2000}
             placeholder="Escreva sua mensagem"
-            value={textArea}
-            onChange={(e) => {
-              setTextArea(e.target.value);
-              console.log(textArea);
-            }}
+            //onChange={(e) => {
+            //  setTextArea(e.target.value);
+            //  console.log(textArea);
+            //}}
             required
           />
-          <SendButton type="submit">
+          <SendButton onClick={callbackSend}>
             <BiSend />
           </SendButton>
         </div>
       </TextArea>
-    </form>
+    </div>
   );
 };
 

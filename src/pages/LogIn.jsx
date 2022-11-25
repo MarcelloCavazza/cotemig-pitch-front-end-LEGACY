@@ -40,7 +40,7 @@ const LogIn = () => {
         "/auth",
         JSON.stringify({
           email: emailValue,
-          password: passwordValue,
+          password: passwordValue
         })
       )
       .then((result) => {
@@ -50,9 +50,7 @@ const LogIn = () => {
           cookies.remove("userData");
           cookies.set(
             "token",
-            {
-              token: response.token,
-            },
+            response.token,
             {
               path: "/",
             }
