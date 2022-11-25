@@ -94,6 +94,7 @@ const SignUp = () => {
               email,
               password,
               telephone,
+              seccional: state,
             })
           )
           .then((result) => {
