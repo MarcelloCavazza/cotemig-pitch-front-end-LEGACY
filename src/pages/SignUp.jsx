@@ -86,13 +86,6 @@ const SignUp = () => {
       alert("CPF menor que o normal!");
       return;
     }
-    cpf = cpf.replace(".", "");
-    cpf = cpf.replace("-", "");
-
-    if (parseInt(cpf) == NaN) {
-      alert('CPF deve conter somente números e/ou ".", "-"');
-      return;
-    }
 
     if (userConfPassword != password) {
       alert("As senhas nao coincidem");
@@ -131,13 +124,9 @@ const SignUp = () => {
             const response = result.data;
             const cookies = new Cookies();
             if (response.is_active) {
-              cookies.set(
-                "token",
-                userToken,
-                {
-                  path: "/",
-                }
-              );
+              cookies.set("token", userToken, {
+                path: "/",
+              });
             }
             window.location.href = "/";
           });
