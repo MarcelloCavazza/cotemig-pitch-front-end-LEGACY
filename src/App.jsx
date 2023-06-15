@@ -1,14 +1,14 @@
 import Layout from "./pages/Layout.jsx";
 import Home from "./pages/Home.jsx";
-import LogIn from "./pages/LogIn.jsx";
+// import LogIn from "./pages/LogIn.jsx";
 import NoPage from "./pages/NoPage.jsx";
-import SignUp from "./pages/SignUp.jsx";
-import ChangeInfo from "./pages/ChangeInfo.jsx";
-import Logged from "./pages/Logged.jsx";
-import Chatroom from "./pages/Chatroom.jsx";
-import ChangePassword from "./pages/ChangePassword.jsx";
+// import SignUp from "./pages/SignUp.jsx";
+// import ChangeInfo from "./pages/ChangeInfo.jsx";
+// import Logged from "./pages/Logged.jsx";
+// import Chatroom from "./pages/Chatroom.jsx";
+// import ChangePassword from "./pages/ChangePassword.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import EmailToResetPassword from "./pages/EmailToResetPassword.jsx";
+// import EmailToResetPassword from "./pages/EmailToResetPassword.jsx";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="login" element={<LogIn />} />
+          {/* <Route path="login" element={<LogIn />} />
           <Route path="logged" element={<Logged />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="chatroom" element={<Chatroom />} />
@@ -25,7 +25,7 @@ function App() {
           <Route
             path="email-reset-password"
             element={<EmailToResetPassword />}
-          />
+          /> */}
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
